@@ -1,78 +1,8 @@
-<h1 align=center> Open Compute Project  </h1>
 
 
+# License
 
-<h3 align=center> Satellite Management Controller </h3>  
-<h3 align=center> (Auxiliary Management Controller) </h3>
-<h3 align=center> Revision 1.0, Version 1.0 </h3>
-<h3 align=center> Base Specification </h3>
-
-</br>
-
-
-Author: Chad Yoshikawa  
-Author: Ed Tanous  
-Author: Jeff Hilland  
-Author: Gregg Shick  
-Author: Patrick Williams  
-Author: Changho Choi  
-Author: Kavin Lee  
-Author: BJ Kim  
-Author: Mike Allison  
-
-### Table of Contents
-
-**1. License**  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.1 OPTION B: Open Web Foundation (OWF) CLA  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.2 Acknowledgements  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.3 References  
-**2. Compliance with OCP Tenets**  
-**3. Change Log**  
-**4. Overview**  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.1 Architectural Example  
-**5. Protocols**  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.1 Physical bindings supported  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2 Protocol layers supported  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.1 MCTP  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.2 PLDM  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.2.3 Redfish Device Enablement  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.3 Device identification  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.4 Device Classes  
-**6. API surface**  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.1 Thermal management     
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.2 Inventory management      
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.3 Software management    
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.4 Fan control  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.5 Power Management     
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.6 Security  
-
-### Glossary of Terms
-
-This section provides definitions for terms used in this document.  
-
-**Server**. Machine hardware that contains a Satellite plug-in. Satellite containers are
-typically Servers but are not required to be so. So we use the more general term Host for a Satellite
-container.  
-
-**Host**. A generalization of a Satellite container that includes Servers (for PCIe Plug-In
-Satellites) and motherboards (for SoC Satellites). A Host is managed by a logical Host Management
-Controller (HMC).  
-
-**Satellite**. A dependent group of hardware that is managed by a logical Satellite
-Management Controller (SMC). Satellites typically are smaller than their Host, are terminal points
-in the management graph, and contain a single power & thermal domain.  
-
-**SMC**. Satellite Management Controller provides a management API to Satellite hardware.
-SMCs may be backed by one or more discrete hardware components. SMC is typically a low-cost
-ARM microcontroller running a RTOS with no external DRAM, although this is not prescriptive and
-any CPU architecture and configuration is acceptable.  
-
-**Terminal Hardware**. Hardware that is an endpoint in the management graph. In other
-words, terminal hardware does not itself manage other hardware. Satellites are terminal hardware.
-
-### 1. License
-
-#### 1.1 OPTION B: Open Web Foundation (OWF) CLA
+## OPTION B: Open Web Foundation (OWF) CLA
 Contributions to this Specification are made under the terms and conditions set forth in Modified OWF-CLA-1.0.2 (As of June 1, 2023) (“Contribution License”) by:  
 
 **Google** 
@@ -103,7 +33,7 @@ Appendix or Appendices is for reference only and non-normative in nature.
 
 NOTWITHSTANDING THE FOREGOING LICENSES, THIS SPECIFICATION IS PROVIDED BY OCP "AS IS" AND OCP EXPRESSLY DISCLAIMS ANY WARRANTIES (EXPRESS, IMPLIED, OR OTHERWISE), INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT, FITNESS FOR A PARTICULAR PURPOSE, OR TITLE, RELATED TO THE SPECIFICATION. NOTICE IS HEREBY GIVEN, THAT OTHER RIGHTS NOT GRANTED AS SET FORTH ABOVE, INCLUDING WITHOUT LIMITATION, RIGHTS OF THIRD PARTIES WHO DID NOT EXECUTE THE ABOVE LICENSES, MAY BE IMPLICATED BY THE IMPLEMENTATION OF OR COMPLIANCE WITH THIS SPECIFICATION. OCP IS NOT RESPONSIBLE FOR IDENTIFYING RIGHTS FOR WHICH A LICENSE MAY BE REQUIRED IN ORDER TO IMPLEMENT THIS SPECIFICATION. THE ENTIRE RISK AS TO IMPLEMENTING OR OTHERWISE USING THE SPECIFICATION IS ASSUMED BY YOU. IN NO EVENT WILL OCP BE LIABLE TO YOU FOR ANY MONETARY DAMAGES WITH RESPECT TO ANY CLAIMS RELATED TO, OR ARISING OUT OF YOUR USE OF THIS SPECIFICATION, INCLUDING BUT NOT LIMITED TO ANY LIABILITY FOR LOST PROFITS OR ANY CONSEQUENTIAL, INCIDENTAL, INDIRECT, SPECIAL OR PUNITIVE DAMAGES OF ANY CHARACTER FROM ANY CAUSES OF ACTION OF ANY KIND WITH RESPECT TO THIS SPECIFICATION, WHETHER BASED ON BREACH OF CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE, AND EVEN IF OCP HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
 
-#### 1.2 Acknowledgements
+# Acknowledgements
 The Contributors of this Specification would like to acknowledge the following companies for their feedback:  
 
 Hewlett Packard Enterprise  
@@ -112,27 +42,12 @@ Samsung
 Dell  
 Meta  
 
-#### 1.3 References
-
-- DMTF DSP0218 - [Platform Level Data Model (PLDM) for Redfish Device Enablement](https://www.dmtf.org/dsp/DSP0218)
-- DMTF DSP0233 - [Management Component Transport Protocol (MCTP) I3C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0233)
-- DMTF DSP0236 - [Management Component Transport Protocol (MCTP) Base Specification](https://www.dmtf.org/dsp/DSP0236)
-- DMTF DSP0237 - [Management Component Transport Protocol (MCTP) SMBus/I2C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0237)
-- DMTF DSP0238 - [Management Component Transport Protocol (MCTP) PCIe VDM Transport Binding Specification](https://www.dmtf.org/dsp/DSP0238)
-- DMTF DSP0240 - [Platform Level Data Model (PLDM) Base Specification](https://www.dmtf.org/dsp/DSP0240)
-- DMTF DSP0241 - [Platform Level Data Model (PLDM) Over MCTP Binding Specification](https://www.dmtf.org/dsp/DSP0241)
-- DMTF DSP0248 - [Platform Level Data Model (PLDM) for Platform Monitoring and Control Specification](https://www.dmtf.org/dsp/DSP0248)
-- DMTF DSP0267 - [Platform Level Data Model (PLDM) for Firmware Update Specification](https://www.dmtf.org/dsp/DSP0267)
-- DMTF DSP0274 - [Security Protocol and Data Model (SPDM) Specification](https://www.dmtf.org/dsp/DSP0274)
-    
-
-
-### 2. Compliance with OCP Tenants
-#### 2.1 Openness
+# Compliance with OCP Tenants
+## Openness
 The SMC V1.0 specification proposes an ecosystem-enabling set of requirements for peripherals to
 enable management compatibility between open systems. This allows interoperability between
 various device classes and host systems.  
-#### 2.2 Efficiency
+## Efficiency
 OEMs invest time to create specifications for industry Independent Hardware Vendors (IHVs)
 which must be implemented in order to support proper management by the host. IHVs invest
 time working with multiple OEMs to implement those requirements. The goal of the SMC
@@ -141,19 +56,19 @@ where both OEM and IHV can more effectively promulgate these requirements.
 Additionally, multi-vendor customer environments will benefit from the efficiencies achieved
 through increased device interoperability and the utilization of a common code base for system
 management.
-#### 2.3 Impact
+## Impact
 The SMC represents a single set of OCP device manageability requirements allowing for IHV
 ease of development, time to market, and effective use of engineering resources. Device
 management ASICs could be developed allowing multiple IHVs to leverage a standardized SMC
 component providing consistent management across device classes.
-#### 2.4 Scale
+## Scale
 Large scale deployments benefit from the standardization of management capability across
 multiple device classes, server and device vendors which this specification provides.  
 
 Redfish, RDE and PLDM DMTF standards for management are utilized allowing for a common
 set of APIs and management tools regardless of hardware or software environment or size of
 server deployment.
-#### 2.5 Sustainability
+## Sustainability
 Between customers’ sustainability initiatives and demands to control energy consumption and
 costs, the ability to report, analyze and actuate server power usage data has become a key
 initiative.  
@@ -163,7 +78,7 @@ no matter the size, to more effectively meet sustainability targets. SMC thermal
 management capabilities can be utilized to enable this goal of minimizing power requirements
 and overall energy usage
 
-### 3. Change Log
+# Change Log
 
 Date | Version # | Author | Description
 :- | :- | :- | :- |
@@ -174,8 +89,7 @@ Date | Version # | Author | Description
 2/12/2024 | 1.0 | Gregg Shick | Convert to markdown
 
 
-
-### 4. Overview
+# Overview
 The Satellite Management Controller specification defines a validatable management interface
 between a satellite container (“server” or more generally a “host”) and simple hardware plug-ins
 (“satellites”). For example, for a server and PCIe plug-in card, the host server manages the satellite
@@ -194,7 +108,7 @@ power management operations. These SLOs may impose constraints on the underlying
 For example, timely firmware update may require i3c (vs. i2c) or higher-bandwidth management
 links.  
 
-#### 4.1 Architectural Example  
+## Architectural Example  
 
 ![SMC Architectural Example Diagram](SMCSpecImage/smc_arch.png)
 
@@ -210,20 +124,20 @@ deployments. For some examples, this specification may assume a PCIe 16X connect
 socket server with BMC.
 
 
-### 5. Protocols
+# Protocols
 
 SMC devices *shall* implement DMTF DSP0236 ([Management Component Transport Protocol (MCTP) Base Specification](https://www.dmtf.org/dsp/DSP0236)).
 
-#### 5.1 Physical Bindings supported
+## Physical Bindings supported
 Devices meeting this specification *shall* implement DMTF DSP0233 ([Management Component Transport Protocol (MCTP) I3C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0233)) OR DSP0237 ([Management Component Transport Protocol (MCTP) SMBus/I2C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0237)) OR DSP0238 ([Management Component Transport Protocol (MCTP) PCIe VDM Transport Binding Specification](https://www.dmtf.org/dsp/DSP0238)). Other physical bindings such as USB, that have MCTP bindings are allowed. Devices *shall* implement these protocols without requiring an on-board i2c mux in the protocol path.
 
 <p align="center">
   <img width="586" height="342" src="SMCSpecImage/smc_layers.png">
 </p>
 
-#### 5.2 Protocol layers supported
+## Protocol layers supported
 
-##### 5.2.1 MCTP
+### MCTP
 * Compliance with MCTP Base Protocol Specification
      
      i. The device will comply to all Endpoint requirements as specified in this section
@@ -253,9 +167,9 @@ MCTP Control Command ([DSP0236](https://www.dmtf.org/dsp/DSP0236)) | Implementat
 0x0D=Discovery Notify  | Required (PCIe VDM)
 
 
-##### 5.2.2 PLDM
+### PLDM
 
-PLDM Messaging Control and DiscoveryCommand Codes ([DSP0240](https://www.dmtf.org/dsp/DSP0240)) | Implementation
+PLDM Messaging Control and Discovery Command Codes ([DSP0240](https://www.dmtf.org/dsp/DSP0240)) | Implementation
 :- | :- |
 0x01 SetTID | Required
 0x02 GetTID | Required
@@ -269,7 +183,7 @@ PLDM Messaging Control and DiscoveryCommand Codes ([DSP0240](https://www.dmtf.or
 
 
 
-##### 5.2.3 Redfish Device Enablement
+### Redfish Device Enablement
 
 Devices *shall* implement DSP0218 ([Platform Level Data Model (PLDM) for Redfish Device Enablement](https://www.dmtf.org/dsp/DSP0218))  
 
@@ -308,7 +222,7 @@ RDE Command ([DSP0218](https://www.dmtf.org/dsp/DSP0218)) | &nbsp; | Implementat
 
 
 
-#### 5.3 Device Identification
+## Device Identification
 
 For purposes of identification, devices meeting this specification *shall* expose an interface to a Platform Management FRU Information Storage Definition-compatible API. The SMC API does not specify where this FRU payload must be physically implemented within the card. Implementations may choose to implement in a physical eeprom device, or a virtual eeprom device. Care should be taken in platform design to ensure that the eeprom is available in the required power states consistent with the needs of the baseline server, but this specification does not specify which power states it will be available in. Devices *shall* implement the following minimum fields.
 
@@ -320,11 +234,11 @@ For purposes of identification, devices meeting this specification *shall* expos
 
 Other fields may be populated at the device's discretion.
 
-#### 5.4 Device Classes
+## Device Classes
 
 The following device classes are supported: Accelerator, NIC, DPU (SmartNIC), Storage Tray, Memory (CXL).
 
-### 6. API Surface
+# API Surface
 
 The below table calls out for the various device classes, whether a given feature is Required (R) or Conditional (C) on existence of the feature. For example, an Accelerator device may not have a Fan and thus Fan Control is conditional.
 
@@ -338,7 +252,7 @@ Subsystem | Thermal | Inventory | Software Management | Fan Control | Security |
 
 
 
-#### 6.1 Thermal management
+## Thermal management
 
 The thermal management subsystem within this specification is intended to allow SMC devices to be managed by a system closed loop thermal system. Devices required to implement the thermal management subsystem *shall* implement the following Redfish resources and properties.
 
@@ -412,7 +326,7 @@ The ChassisCollection in the device *shall* contain one or more Chassis Resource
 
 SMC devices *may* implement more than one Chassis resource, for representing physical subsystems within the device. Within the SMC chassis collection, there *shall* be only one Chassis instance (referred to further as the “root”) that does not possess a ContainedBy attribute, and is intended to represent the overall containment of the device. All other devices *shall* have a ContainedBy Link, traceable to the root device. Root devices *shall* implement a “Contains” property representing the devices containment
 
-#### 6.3 Software Management
+## Software Management
 
 SMC devices implementing multiple updatable components shall implement an UpdateService. The SMC UpdateService shall implement one or more of FirmwareInventory, or SoftwareInventory collections.
 Collections shall contain at least one member of type SoftwareInventory, implementing the following properties
@@ -451,11 +365,11 @@ PLDM for Firmware Update [DSP0267](https://www.dmtf.org/dsp/DSP0267) | Implement
 
 SMC devices shall be required to be updated in 1 minute or less, measured in the time that the device is unavailable, and 5 minutes or less from the time the update is requested, including all data transfers to the device.
 
-#### 6.4 Fan Control  
+## Fan Control  
 
 SMC devices containing fans shall implement control and monitoring of those fans through the RDE interface. Devices shall support the Redfish Control schema for fan control within a system. SMC devices may run internal control loops in addition to the control loops presented on the RDE interface.
 
-#### 6.5 Power Management  
+## Power Management  
 
 If an SMC device supports reset, the Redfish Chassis.Reset action shall be supported.  
 
@@ -468,7 +382,7 @@ If an SMC device captures power metrics, the SMC EnvironmentMetric and Sensor co
 - AverageReading
 - AveragingInterval
 
-#### 6.6 Security  
+## Security  
 
 Sync with the OCP Security Group around these requirements is required.  [Security Protocol and Data Model (SPDM) Specification](https://www.dmtf.org/dsp/DSP0274)
 
@@ -502,7 +416,40 @@ SPDM 1.1 or later is required. The following attributes shall be supported:
 - Identification
 - Attestation
 
-  
+# Glossary of Terms
 
+This section provides definitions for terms used in this document.  
 
+**Server**. Machine hardware that contains a Satellite plug-in. Satellite containers are
+typically Servers but are not required to be so. So we use the more general term Host for a Satellite
+container.  
+
+**Host**. A generalization of a Satellite container that includes Servers (for PCIe Plug-In
+Satellites) and motherboards (for SoC Satellites). A Host is managed by a logical Host Management
+Controller (HMC).  
+
+**Satellite**. A dependent group of hardware that is managed by a logical Satellite
+Management Controller (SMC). Satellites typically are smaller than their Host, are terminal points
+in the management graph, and contain a single power & thermal domain.  
+
+**SMC**. Satellite Management Controller provides a management API to Satellite hardware.
+SMCs may be backed by one or more discrete hardware components. SMC is typically a low-cost
+ARM microcontroller running a RTOS with no external DRAM, although this is not prescriptive and
+any CPU architecture and configuration is acceptable.  
+
+**Terminal Hardware**. Hardware that is an endpoint in the management graph. In other
+words, terminal hardware does not itself manage other hardware. Satellites are terminal hardware.  
+
+# References
+
+- DMTF DSP0218 - [Platform Level Data Model (PLDM) for Redfish Device Enablement](https://www.dmtf.org/dsp/DSP0218)
+- DMTF DSP0233 - [Management Component Transport Protocol (MCTP) I3C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0233)
+- DMTF DSP0236 - [Management Component Transport Protocol (MCTP) Base Specification](https://www.dmtf.org/dsp/DSP0236)
+- DMTF DSP0237 - [Management Component Transport Protocol (MCTP) SMBus/I2C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0237)
+- DMTF DSP0238 - [Management Component Transport Protocol (MCTP) PCIe VDM Transport Binding Specification](https://www.dmtf.org/dsp/DSP0238)
+- DMTF DSP0240 - [Platform Level Data Model (PLDM) Base Specification](https://www.dmtf.org/dsp/DSP0240)
+- DMTF DSP0241 - [Platform Level Data Model (PLDM) Over MCTP Binding Specification](https://www.dmtf.org/dsp/DSP0241)
+- DMTF DSP0248 - [Platform Level Data Model (PLDM) for Platform Monitoring and Control Specification](https://www.dmtf.org/dsp/DSP0248)
+- DMTF DSP0267 - [Platform Level Data Model (PLDM) for Firmware Update Specification](https://www.dmtf.org/dsp/DSP0267)
+- DMTF DSP0274 - [Security Protocol and Data Model (SPDM) Specification](https://www.dmtf.org/dsp/DSP0274)
   
