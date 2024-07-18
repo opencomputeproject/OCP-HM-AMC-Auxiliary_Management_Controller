@@ -59,7 +59,7 @@ various device classes and host systems.
 ## Efficiency
 OEMs invest time to create specifications for industry Independent Hardware Vendors (IHVs)
 which must be implemented in order to support proper management by the host. IHVs invest time working with multiple OEMs to implement those requirements.
-The goal of the SMC specification is to standardize those various work streams into a single public OCP specification
+The goal of the AMC specification is to standardize those various work streams into a single public OCP specification
 where both OEM and IHV can more effectively promulgate these requirements.
 Additionally, multi-vendor customer environments will benefit from the efficiencies achieved through increased device interoperability and the utilization of a common code base for system management.
 
@@ -88,6 +88,7 @@ Date | Version # | Author | Description
 9/15/2023 | 1.0 | Chad Yoshikawa | Used recent
 2/12/2024 | 1.0 | Gregg Shick | Convert to markdown
 4/15/2024 | 1.0 | John Leung | Format to work with DMTF Doc Publication tool
+7/18/2024 | 1.1 | John Leung | Rename to Auxiliary Management Controller
 
 
 # Overview
@@ -109,7 +110,7 @@ For example, timely firmware update may require i3c (vs. i2c) or higher-bandwidt
 
 ## Architectural Example  
 
-![SMC Architectural Example Diagram](SMCSpecImage/smc_arch.png)
+![AMC Architectural Example Diagram](AMCSpecImage/AMC_arch.png)
 
 This document includes all API definitions required for managing a peripheral device from an out-of-band baseboard management controller (BMC) in the most common configuration. 
 While other configurations may exist that this specification fulfills, the above diagram is considered the baseline.
@@ -129,7 +130,7 @@ AMC devices *shall* implement DMTF DSP0236 ([Management Component Transport Prot
 Devices meeting this specification *shall* implement DMTF DSP0233 ([Management Component Transport Protocol (MCTP) I3C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0233)) OR DSP0237 ([Management Component Transport Protocol (MCTP) SMBus/I2C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0237)) OR DSP0238 ([Management Component Transport Protocol (MCTP) PCIe VDM Transport Binding Specification](https://www.dmtf.org/dsp/DSP0238)). Other physical bindings such as USB, that have MCTP bindings may be supported. Devices *shall* implement these protocols without requiring an on-board i2c mux in the protocol path.
 
 <p align="center">
-  <img width="586" height="342" src="SMCSpecImage/smc_layers.png">
+  <img width="586" height="342" src="AMCSpecImage/AMC_layers.png">
 </p>
 
 ## Protocol layers supported
@@ -310,7 +311,7 @@ Devices implementing multiple replaceable components shall implement ThermalSubs
 
 **ThermalSubsystem**
 
-An SMC Redfish ThermalSubsystem *shall* be implemented, with the following properties:
+An AMC Redfish ThermalSubsystem *shall* be implemented, with the following properties:
 
 * *Fans*: With Fan resources representing the fans physically present on this device.
 * Fan resources *shall* contain the following properties
@@ -318,7 +319,7 @@ An SMC Redfish ThermalSubsystem *shall* be implemented, with the following prope
  
 ## Inventory Management
 
-Requirements within this section are intended to allow inventory management and control of a given device. SMC devices *shall* implement:
+Requirements within this section are intended to allow inventory management and control of a given device. AMC devices *shall* implement:
 
 **ChassisCollection**
 
@@ -328,7 +329,7 @@ The ChassisCollection in the device *shall* contain one or more Chassis Resource
 * Manufacturer:The value of this property *shall* match the “Manufacturer Name” field present in the FRU identification from section 5.3
 * SerialNumber: The value of this property *shall* match the “Serial Number” field present in the FRU identification from section 5.3
 
-SMC devices *may* implement more than one Chassis resource, for representing physical subsystems within the device. Within the SMC chassis collection, there *shall* be only one Chassis instance (referred to further as the “root”) that does not possess a ContainedBy attribute, and is intended to represent the overall containment of the device. All other devices *shall* have a ContainedBy Link, traceable to the root device. Root devices *shall* implement a “Contains” property representing the devices containment
+AMC devices *may* implement more than one Chassis resource, for representing physical subsystems within the device. Within the AMC chassis collection, there *shall* be only one Chassis instance (referred to further as the “root”) that does not possess a ContainedBy attribute, and is intended to represent the overall containment of the device. All other devices *shall* have a ContainedBy Link, traceable to the root device. Root devices *shall* implement a “Contains” property representing the devices containment
 
 ## Firmware and Software Update
 
@@ -394,17 +395,17 @@ PLDM for Firmware Update | Implementation
 
 
 
-SMC devices *shall* be updated in 1 minute or less, measured in the time that the device is unavailable, and 5 minutes or less from the time the update is requested, including all data transfers to the device.
+AMC devices *shall* be updated in 1 minute or less, measured in the time that the device is unavailable, and 5 minutes or less from the time the update is requested, including all data transfers to the device.
 
 ## Fan Control  
 
-SMC devices containing fans shall implement control and monitoring of those fans through the RDE interface. Devices shall support the Redfish Control schema for fan control within a system. SMC devices may run internal control loops in addition to the control loops presented on the RDE interface.
+AMC devices containing fans shall implement control and monitoring of those fans through the RDE interface. Devices shall support the Redfish Control schema for fan control within a system. AMC devices may run internal control loops in addition to the control loops presented on the RDE interface.
 
 ## Power Management  
 
 If the AMC device supports reset, the Redfish Chassis.Reset action *shall* be supported,   
 
-If an SMC device provides power metrics, the EnvironmentMetric resource and Sensor collection resource *shall* implement the following properties where supported:
+If an AMC device provides power metrics, the EnvironmentMetric resource and Sensor collection resource *shall* implement the following properties where supported:
 
 - EnergykWh or EnergyJoules
 - PowerWatts
