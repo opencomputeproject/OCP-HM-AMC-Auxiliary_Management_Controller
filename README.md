@@ -1,1 +1,1 @@
-# OCP-HM-SMC-Satellite_Management_Controller
+# OCP-HM-AMC-Auxiliary_Management_Controller
