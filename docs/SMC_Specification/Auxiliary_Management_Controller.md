@@ -2,8 +2,27 @@
 
 # License
 
-## OPTION B: Open Web Foundation (OWF) CLA
+## Open Web Foundation (OWF) CLA
 Contributions to this Specification are made under the terms and conditions set forth in Modified OWF-CLA-1.0.2 (As of June 1, 2023) (“Contribution License”) by:  
+
+- Google
+- HPE
+- Meta
+- Samsung
+
+Usage of this Specification is governed by the terms and conditions set forth in **Modified OWFa1.0.2 Final Specification Agreement (FSA) (As of June 1, 2023) (“Specification License”)**.  
+
+You can review the applicable Specification License(s) referenced above by the contributors to this Specification on the OCP website at http://www.opencompute.org/participate/legal-documents/. For actual executed copies of either agreement, please contact OCP directly.
+
+**Notes:**
+
+The above license does not apply to the Appendix or Appendices. The information in the Appendix or Appendices is for reference only and non-normative in nature.
+
+NOTWITHSTANDING THE FOREGOING LICENSES, THIS SPECIFICATION IS PROVIDED BY OCP "AS IS" AND OCP EXPRESSLY DISCLAIMS ANY WARRANTIES (EXPRESS, IMPLIED, OR OTHERWISE), INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT, FITNESS FOR A PARTICULAR PURPOSE, OR TITLE, RELATED TO THE SPECIFICATION. NOTICE IS HEREBY GIVEN, THAT OTHER RIGHTS NOT GRANTED AS SET FORTH ABOVE, INCLUDING WITHOUT LIMITATION, RIGHTS OF THIRD PARTIES WHO DID NOT EXECUTE THE ABOVE LICENSES, MAY BE IMPLICATED BY THE IMPLEMENTATION OF OR COMPLIANCE WITH THIS SPECIFICATION. OCP IS NOT RESPONSIBLE FOR IDENTIFYING RIGHTS FOR WHICH A LICENSE MAY BE REQUIRED IN ORDER TO IMPLEMENT THIS SPECIFICATION. THE ENTIRE RISK AS TO IMPLEMENTING OR OTHERWISE USING THE SPECIFICATION IS ASSUMED BY YOU. IN NO EVENT WILL OCP BE LIABLE TO YOU FOR ANY MONETARY DAMAGES WITH RESPECT TO ANY CLAIMS RELATED TO, OR ARISING OUT OF YOUR USE OF THIS SPECIFICATION, INCLUDING BUT NOT LIMITED TO ANY LIABILITY FOR LOST PROFITS OR ANY CONSEQUENTIAL, INCIDENTAL, INDIRECT, SPECIAL OR PUNITIVE DAMAGES OF ANY CHARACTER FROM ANY CAUSES OF ACTION OF ANY KIND WITH RESPECT TO THIS SPECIFICATION, WHETHER BASED ON BREACH OF CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE, AND EVEN IF OCP HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
+
+# Acknowledgements
+
+## Contributors
 
 **Google** 
 >chadyoshikawa@google.com  
@@ -22,18 +41,7 @@ Contributions to this Specification are made under the terms and conditions set 
 >bj20.kim@samsung.com  
 >mike.allison@samsung.com  
 
-Usage of this Specification is governed by the terms and conditions set forth in **Modified OWFa1.0.2 Final Specification Agreement (FSA) (As of June 1, 2023) (“Specification License”)**.  
-
-You can review the applicable Specification License(s) referenced above by the contributors to this Specification on the OCP website at http://www.opencompute.org/participate/legal-documents/. For actual executed copies of either agreement, please contact OCP directly.
-
-**Notes:**
-
-1) The above license does not apply to the Appendix or Appendices. The information in the
-Appendix or Appendices is for reference only and non-normative in nature.
-
-NOTWITHSTANDING THE FOREGOING LICENSES, THIS SPECIFICATION IS PROVIDED BY OCP "AS IS" AND OCP EXPRESSLY DISCLAIMS ANY WARRANTIES (EXPRESS, IMPLIED, OR OTHERWISE), INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT, FITNESS FOR A PARTICULAR PURPOSE, OR TITLE, RELATED TO THE SPECIFICATION. NOTICE IS HEREBY GIVEN, THAT OTHER RIGHTS NOT GRANTED AS SET FORTH ABOVE, INCLUDING WITHOUT LIMITATION, RIGHTS OF THIRD PARTIES WHO DID NOT EXECUTE THE ABOVE LICENSES, MAY BE IMPLICATED BY THE IMPLEMENTATION OF OR COMPLIANCE WITH THIS SPECIFICATION. OCP IS NOT RESPONSIBLE FOR IDENTIFYING RIGHTS FOR WHICH A LICENSE MAY BE REQUIRED IN ORDER TO IMPLEMENT THIS SPECIFICATION. THE ENTIRE RISK AS TO IMPLEMENTING OR OTHERWISE USING THE SPECIFICATION IS ASSUMED BY YOU. IN NO EVENT WILL OCP BE LIABLE TO YOU FOR ANY MONETARY DAMAGES WITH RESPECT TO ANY CLAIMS RELATED TO, OR ARISING OUT OF YOUR USE OF THIS SPECIFICATION, INCLUDING BUT NOT LIMITED TO ANY LIABILITY FOR LOST PROFITS OR ANY CONSEQUENTIAL, INCIDENTAL, INDIRECT, SPECIAL OR PUNITIVE DAMAGES OF ANY CHARACTER FROM ANY CAUSES OF ACTION OF ANY KIND WITH RESPECT TO THIS SPECIFICATION, WHETHER BASED ON BREACH OF CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE, AND EVEN IF OCP HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  
-
-# Acknowledgements
+## Reviewers
 The Contributors of this Specification would like to acknowledge the following companies for their feedback:  
 
 Hewlett Packard Enterprise  
@@ -44,39 +52,31 @@ Meta
 
 # Compliance with OCP Tenants
 ## Openness
-The SMC V1.0 specification proposes an ecosystem-enabling set of requirements for peripherals to
+The document proposes an ecosystem-enabling set of requirements for peripherals to
 enable management compatibility between open systems. This allows interoperability between
-various device classes and host systems.  
+various device classes and host systems.
+
 ## Efficiency
 OEMs invest time to create specifications for industry Independent Hardware Vendors (IHVs)
-which must be implemented in order to support proper management by the host. IHVs invest
-time working with multiple OEMs to implement those requirements. The goal of the SMC
-specification is to standardize those various work streams into a single public OCP specification
+which must be implemented in order to support proper management by the host. IHVs invest time working with multiple OEMs to implement those requirements.
+The goal of the SMC specification is to standardize those various work streams into a single public OCP specification
 where both OEM and IHV can more effectively promulgate these requirements.
-Additionally, multi-vendor customer environments will benefit from the efficiencies achieved
-through increased device interoperability and the utilization of a common code base for system
-management.
+Additionally, multi-vendor customer environments will benefit from the efficiencies achieved through increased device interoperability and the utilization of a common code base for system management.
+
 ## Impact
-The SMC represents a single set of OCP device manageability requirements allowing for IHV
-ease of development, time to market, and effective use of engineering resources. Device
-management ASICs could be developed allowing multiple IHVs to leverage a standardized SMC
-component providing consistent management across device classes.
+This document represents a single set of OCP device manageability requirements allowing for IHV
+ease of development, time to market, and effective use of engineering resources. Device management ASICs could be developed allowing multiple IHVs to leverage a standardized auxiliary management controller component providing consistent management across device classes.
+
 ## Scale
-Large scale deployments benefit from the standardization of management capability across
-multiple device classes, server and device vendors which this specification provides.  
+Large scale deployments benefit from the standardization of management capability across multiple device classes, server and device vendors which this specification provides.  
 
-Redfish, RDE and PLDM DMTF standards for management are utilized allowing for a common
-set of APIs and management tools regardless of hardware or software environment or size of
-server deployment.
+Redfish, RDE and PLDM DMTF standards for management are utilized allowing for a common set of APIs and management tools regardless of hardware or software environment or size of server deployment.
+
 ## Sustainability
-Between customers’ sustainability initiatives and demands to control energy consumption and
-costs, the ability to report, analyze and actuate server power usage data has become a key
-initiative.  
+Between customers’ sustainability initiatives and demands to control energy consumption and costs, the ability to report, analyze and actuate server power usage data has become a key initiative.  
 
-The creation of a truly interoperable telemetry environment will allow businesses to datacenters,
-no matter the size, to more effectively meet sustainability targets. SMC thermal and power
-management capabilities can be utilized to enable this goal of minimizing power requirements
-and overall energy usage
+The creation of a truly interoperable telemetry environment will allow businesses to datacenters, no matter the size, to more effectively meet sustainability targets.
+Auxiliary management controller thermal and power management capabilities can be utilized to enable this goal of minimizing power requirements and overall energy usage
 
 # Change Log
 
@@ -87,49 +87,46 @@ Date | Version # | Author | Description
 4/27/2023 | 0.3 | Ed Tanous | Removal of old text, formatting cleanups
 9/15/2023 | 1.0 | Chad Yoshikawa | Used recent
 2/12/2024 | 1.0 | Gregg Shick | Convert to markdown
+4/15/2024 | 1.0 | John Leung | Format to work with DMTF Doc Publication tool
 
 
 # Overview
-The Satellite Management Controller specification defines a validatable management interface
-between a satellite container (“server” or more generally a “host”) and simple hardware plug-ins
-(“satellites”). For example, for a server and PCIe plug-in card, the host server manages the satellite
-plug-in.  
+The Auxiliary Management Controller specification defines the management interface between a host server and hardware plug-ins.  For example: the host server has a baseboard management controller (BMC). The plug-in has an auxiliary management controller (AMC).  Hence, the manageament interface is the interface between the BMC and the AMC.  
 
-Satellites are simple: they do not manage other devices and typically contain a single thermal,
-power and security domain. Note that the satellite and host may not be discrete hardware; host and
-satellite may be integrated onto the same board in the case of a tray and its SoC.  
+Auxiliary Management Controllers are simple.
+They manage a single thermal, power and security domain.
+They do not manage other devices.
 
-Satellite conformance can be validated using software tools, which enables independent hardware
-development and bring-up. To provide validation, the SMC specification defines a compatibility
-test suite (CTS) to ensure conformance to specified functional requirements.  
+The host management controller and auxiliary management controller may be integrated onto the same board in the case of a tray and its SoC.  
 
-The management interface additionally specifies SLOs for operations such as firmware update and
-power management operations. These SLOs may impose constraints on the underlying hardware.
-For example, timely firmware update may require i3c (vs. i2c) or higher-bandwidth management
-links.  
+The conformance of the AMC can be validated using software tools.
+This enables independent hardware development and bring-up.
+To provide validation, this document defines a compatibility test suite (CTS) to ensure conformance to specified functional requirements.  
+
+The management interface additionally specifies SLOs  (Service Level Objective) for operations such as firmware update and power management operations.
+These SLOs may impose constraints on the underlying hardware.
+For example, timely firmware update may require i3c (vs. i2c) or higher-bandwidth management links.  
 
 ## Architectural Example  
 
 ![SMC Architectural Example Diagram](SMCSpecImage/smc_arch.png)
 
-SMC includes all API definitions required for managing a peripheral device from an out of band
-management controller (BMC) in the most common configuration. While other configurations may
-exist that this specification fulfills, the above diagram is considered the baseline. This specification
-may reference elements of the baseline configuration as examples. Other configurations may exist.  
+This document includes all API definitions required for managing a peripheral device from an out-of-band baseboard management controller (BMC) in the most common configuration. 
+While other configurations may exist that this specification fulfills, the above diagram is considered the baseline.
+This document may reference elements of the baseline configuration as examples. Other configurations may exist.  
 
-The SMC specification explicitly does not define any physical connectors, physical form factors, or
-specifications for non SMC components, although other specifications (such as the [Modular
-Hardware Management DC-SCM](https://www.opencompute.org/documents/ocp-dc-scm-spec-rev-1-0-pdf)) may define connector specifications that may be used in
-deployments. For some examples, this specification may assume a PCIe 16X connector, and a single
+This document explicitly does not define any physical connectors, physical form factors, or specifications for non-AMC components.
+Other specifications (such as the [Modular Hardware Management DC-SCM](https://www.opencompute.org/documents/ocp-dc-scm-spec-rev-1-0-pdf)) may define connector specifications that may be used in deployments.
+For some examples, this specification may assume a PCIe 16X connector, and a single
 socket server with BMC.
 
 
 # Protocols
 
-SMC devices *shall* implement DMTF DSP0236 ([Management Component Transport Protocol (MCTP) Base Specification](https://www.dmtf.org/dsp/DSP0236)).
+AMC devices *shall* implement DMTF DSP0236 ([Management Component Transport Protocol (MCTP) Base Specification](https://www.dmtf.org/dsp/DSP0236)).
 
-## Physical Bindings supported
-Devices meeting this specification *shall* implement DMTF DSP0233 ([Management Component Transport Protocol (MCTP) I3C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0233)) OR DSP0237 ([Management Component Transport Protocol (MCTP) SMBus/I2C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0237)) OR DSP0238 ([Management Component Transport Protocol (MCTP) PCIe VDM Transport Binding Specification](https://www.dmtf.org/dsp/DSP0238)). Other physical bindings such as USB, that have MCTP bindings are allowed. Devices *shall* implement these protocols without requiring an on-board i2c mux in the protocol path.
+## Physical bindings supported
+Devices meeting this specification *shall* implement DMTF DSP0233 ([Management Component Transport Protocol (MCTP) I3C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0233)) OR DSP0237 ([Management Component Transport Protocol (MCTP) SMBus/I2C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0237)) OR DSP0238 ([Management Component Transport Protocol (MCTP) PCIe VDM Transport Binding Specification](https://www.dmtf.org/dsp/DSP0238)). Other physical bindings such as USB, that have MCTP bindings may be supported. Devices *shall* implement these protocols without requiring an on-board i2c mux in the protocol path.
 
 <p align="center">
   <img width="586" height="342" src="SMCSpecImage/smc_layers.png">
@@ -140,13 +137,13 @@ Devices meeting this specification *shall* implement DMTF DSP0233 ([Management C
 ### MCTP
 * Compliance with MCTP Base Protocol Specification
      
-     i. The device will comply to all Endpoint requirements as specified in this section
+     i. The device *shall* comply to all endpoint requirements as specified in this section
      
-     ii. For SMBus (Binding) Protocol, the device shall not be the MCTP Bus Owner
+     ii. For SMBus (Binding) Protocol, the device *shall not* be the MCTP Bus Owner
 
-     iii. "The device shall support receiving an MCTP Set Endpoint ID command at any time (Standby or Main) power is applied. For example, the BMC firmware could be updated resulting in a BMC reset. The BMC initialization sequence will go out and dynamically discover devices and assign Endpoint IDs. While in most cases, the same Endpoint ID will be assigned, this is not guaranteed. The BMC will query the device to see if an Endpoint ID has been previously assigned and is not in conflict with any other assigned Endpoint.
+     iii. The device *shall* support receiving an MCTP Set Endpoint ID command at any time (Standby or Main) power is applied. For example, the BMC firmware could be updated resulting in a BMC reset. The BMC initialization sequence will go out and dynamically discover devices and assign Endpoint IDs. While in most cases, the same Endpoint ID will be assigned, this is not guaranteed. The BMC will query the device to see if an Endpoint ID has been previously assigned and is not in conflict with any other assigned Endpoint.
 
-* Specific compliance with Section “MCTP Message Types”
+* Compliance with Section “MCTP Message Types”
 * Compliance with Section “MCTP Control Protocol”
 * Compliance with Section “MCTP Control Messages”
 * Support Section “MCTP Control Message Command Codes”, “MCTP Control Command
@@ -185,13 +182,16 @@ PLDM Messaging Control and Discovery Command Codes ([DSP0240](https://www.dmtf.o
 
 ### Redfish Device Enablement
 
-Devices *shall* implement DSP0218 ([Platform Level Data Model (PLDM) for Redfish Device Enablement](https://www.dmtf.org/dsp/DSP0218))  
+The AMC support requirements are:
 
-Devices *shall* support 1 and should support a minimum of 4 concurrent RDE tree operations in parallel.  
+- Devices *shall* conform to DSP0218 ([Platform Level Data Model (PLDM) for Redfish Device Enablement](https://www.dmtf.org/dsp/DSP0218))  
+- Devices *shall* support 1 support one RDE tree operartion.
+- Devices *should* support a minimum of 4 concurrent RDE tree operations.  
+- Devices *should* be capable of returning the requested portions of the Redfish tree in less than 2 seconds.
 
-Devices should be capable of returning the requested portions of the Redfish tree in less than 2 seconds.
+Table specific the RDE command requirements
 
-RDE Command ([DSP0218](https://www.dmtf.org/dsp/DSP0218)) | &nbsp; | Implementation
+RDE Command | &nbsp; | Implementation
 :- | :- | :- |
 0x01 NegotiateRedfishParameters | &nbsp; | Required
 &nbsp;  | DeviceCapabilitiesFlags | Support atomic resource read to enable consistent reads
@@ -224,23 +224,25 @@ RDE Command ([DSP0218](https://www.dmtf.org/dsp/DSP0218)) | &nbsp; | Implementat
 
 ## Device Identification
 
-For purposes of identification, devices meeting this specification *shall* expose an interface to a Platform Management FRU Information Storage Definition-compatible API. The SMC API does not specify where this FRU payload must be physically implemented within the card. Implementations may choose to implement in a physical eeprom device, or a virtual eeprom device. Care should be taken in platform design to ensure that the eeprom is available in the required power states consistent with the needs of the baseline server, but this specification does not specify which power states it will be available in. Devices *shall* implement the following minimum fields.
+Devices *shall* expose an interface to a Platform Management FRU Information Storage Definition-compatible API.
+The document does not specify where this FRU payload must be physically implemented within the card. Implementations may choose to implement in a physical eeprom device, or a virtual eeprom device. Care should be taken in platform design to ensure that the eeprom is available in the required power states consistent with the needs of the baseline server, but this specification does not specify which power states it will be available in.
 
-**Product info area:**
+The FRU information *shall* contain the following fields. Other fields may be populated.
+
 
 * Manufacturer Name
 * Product Name
 * Product Serial Number
 
-Other fields may be populated at the device's discretion.
 
 ## Device Classes
 
-The following device classes are supported: Accelerator, NIC, DPU (SmartNIC), Storage Tray, Memory (CXL).
+The following device classes *shall* be supported: Accelerator, NIC, DPU (SmartNIC), Storage Tray, Memory (CXL).
 
 # API Surface
 
-The below table calls out for the various device classes, whether a given feature is Required (R) or Conditional (C) on existence of the feature. For example, an Accelerator device may not have a Fan and thus Fan Control is conditional.
+Table XX specifies the required support for various device classes. "R" signifies that support is required. "C" signifies that support is required if the feature exists.
+For example, an Accelerator device may not have a Fan and thus Fan Control is conditional.
 
 Subsystem | Thermal | Inventory | Software Management | Fan Control | Security | Power Management
 :- | :-: | :-: | :-: | :-: | :-: | :-:
@@ -251,30 +253,32 @@ Subsystem | Thermal | Inventory | Software Management | Fan Control | Security |
 *Memory (CXL)* | R | R | C | C | R | C
 
 
+## Thermal management subsystem
 
-## Thermal management
-
-The thermal management subsystem within this specification is intended to allow SMC devices to be managed by a system closed loop thermal system. Devices required to implement the thermal management subsystem *shall* implement the following Redfish resources and properties.
+The thermal management subsystem is intended to allow AMC devices to be managed by a closed loop thermal system. Implementation the thermal management subsystem requires support for the following Redfish resources and properties.
 
 **Sensor**
 
-An SMC SensorCollection *shall* implement one or more sensor resources representing the thermal temperature of the device. The sensor *shall* have the following properties supported.
+The SensorCollection resource *shall* implement one or more sensor resources representing the thermal temperature of the device. 
 
-* *ReadingUnits: Shall* be presented and implement as "Cel"
-* *ReadingType: Shall* be present and implemented as “Temperature”
-* Threshold properties of *UpperCritical*, *UpperFatal*, *LowerCritical*, and *LowerFatal* *shall* be
-implemented and represent the design limits of the SMC device in question. Devices with unlimited thermal design limits *shall* omit these properties.
+The sensor *shall* have the following properties supported.
 
-If an SMC device possess fans, the SMC SensorCollection shall implement a Sensor with the following properties:
+* **ReadingUnits** *shall* be presented and implement as "Cel"
+* **ReadingType** *shall* be present and implemented as “Temperature”
+* Threshold properties of **UpperCritical**, **UpperFatal**, **LowerCritical**, and **LowerFatal** *shall* be implemented and represent the design limits of the AMC device in question. Devices with unlimited thermal design limits *shall* omit these properties.
 
-* *ReadingUnits: Shall* be present and implemented as “{rev}/min”
-* *ReadingType: Shall* be present and implemented as “Rotational”
+If the AMC device possess fans, the AMC SensorCollection shall implement a Sensor with the following properties:
+
+* **ReadingUnits** *shall* be present and implemented as “{rev}/min”
+* **ReadingType** *shall* be present and implemented as “Rotational”
 
 Devices implementing a single replaceable component may implement PLDM type 2 for sensor readings.
 
 **PLDM Type 2 Sensor Requirements**
 
-PLDM for Platform Monitoring and Control ([DSP0248](https://www.dmtf.org/dsp/DSP0248)) | &nbsp; | Implementation
+Table XX specifies the support requirement for the PLDM for Platform Monitoring and Control ([DSP0248](https://www.dmtf.org/dsp/DSP0248)
+
+Command Codes | &nbsp; | Implementation
 :- | :- | :- |
 Terminus Command | &nbsp; | &nbsp;
 &nbsp; | 0x04 SetEventReceiver | Required for RDE Alert
@@ -312,7 +316,7 @@ An SMC Redfish ThermalSubsystem *shall* be implemented, with the following prope
 * Fan resources *shall* contain the following properties
    - *SpeedPercent*
  
-#### 6.2 Inventory Management
+## Inventory Management
 
 Requirements within this section are intended to allow inventory management and control of a given device. SMC devices *shall* implement:
 
@@ -326,21 +330,48 @@ The ChassisCollection in the device *shall* contain one or more Chassis Resource
 
 SMC devices *may* implement more than one Chassis resource, for representing physical subsystems within the device. Within the SMC chassis collection, there *shall* be only one Chassis instance (referred to further as the “root”) that does not possess a ContainedBy attribute, and is intended to represent the overall containment of the device. All other devices *shall* have a ContainedBy Link, traceable to the root device. Root devices *shall* implement a “Contains” property representing the devices containment
 
-## Software Management
+## Firmware and Software Update
 
-SMC devices implementing multiple updatable components shall implement an UpdateService. The SMC UpdateService shall implement one or more of FirmwareInventory, or SoftwareInventory collections.
+AMC devices may have one or multiple updateable firmware or software components.
+
+### Single Update
+
+AMC devices with a single updateable firmware or software component *should* implement PLDM for Firmware Update (type 5).
+
+PLDM for Firmware Update | Implementation
+:-| :-|
+0x01 QueryDeviceIdentifiers | Required
+0x02 GetFirmwareParameters | Required
+0x03 QueryDownstreamDevices | Required
+0x04 QueryDowstreamIdentifiers | Required
+0x05 GetDownstreamFirmwareParameters  | Required
+0x10 RequestUpdate | Required
+0x13 PassComponentTable | Required
+0x14 UpdateComponent | Required
+0x15 RequestFirmwareData | Required
+0x16 TransferComplete | Required
+0x17 VerifyComplete | Required
+0x18 ApplyComplete | Required
+0x1A ActivateFirmware| Required
+0x1B GetStatus  | Required
+0x1B GetStatus | Required
+0x1C CancelUpdateComponent | Required
+0x1D CancelUpdate | Required
+0x20 RequestDownstreamDeviceUpdate | Required
+
+### Multiple Update
+
+AMC devices with multiple updateable firmware or software components *shall* support an UpdateService resource. The UpdateService resource *shall* implement one or more of FirmwareInventory, or SoftwareInventory collections.
 Collections shall contain at least one member of type SoftwareInventory, implementing the following properties
 
-* **Version**: A string representing the software version running on the SMC device.
-* **Updateable**: A property that conveys whether or not the device supports update.
-For SMC devices, this shall be set to True.
-* **SoftwareID**: A property to uniquely identify this devices firmware type.
-* **AdditionalVersions**: Devices that fit the Redfish descriptions in these properties
-shall implement AdditionalVersions, with the appropriate subproperties. Devices that do not fit the description shall omit the AdditionalVersions Property.
+* **Version**: The software version running on the AMC device.
+* **Updateable**: Whether or not the device supports update. For AMC devices, this shall be set to True.
+* **SoftwareID**: Unique identifier for this devices firmware type.
+* **AdditionalVersions**: Devices that fit the Redfish descriptions in these properties *shall* implement AdditionalVersions, with the appropriate subproperties. Devices that do not fit the description *shall* omit the AdditionalVersions Property.
 
-Devices implementing a single updatable component should implement updates of their firmware via PLDM type 5 ([DSP0267 Section 6](https://www.dmtf.org/dsp/DSP0267)).
+AMC devices with a single updateable firmware or software component *should* implement PLDM for Firmware Update (type 5).
 
-PLDM for Firmware Update [DSP0267](https://www.dmtf.org/dsp/DSP0267) | Implementation
+PLDM for Firmware Update | Implementation
 :-| :-|
 0x01 QueryDeviceIdentifiers | Required
 0x02 GetFirmwareParameters | Required
@@ -363,7 +394,7 @@ PLDM for Firmware Update [DSP0267](https://www.dmtf.org/dsp/DSP0267) | Implement
 
 
 
-SMC devices shall be required to be updated in 1 minute or less, measured in the time that the device is unavailable, and 5 minutes or less from the time the update is requested, including all data transfers to the device.
+SMC devices *shall* be updated in 1 minute or less, measured in the time that the device is unavailable, and 5 minutes or less from the time the update is requested, including all data transfers to the device.
 
 ## Fan Control  
 
@@ -371,9 +402,9 @@ SMC devices containing fans shall implement control and monitoring of those fans
 
 ## Power Management  
 
-If an SMC device supports reset, the Redfish Chassis.Reset action shall be supported.  
+If the AMC device supports reset, the Redfish Chassis.Reset action *shall* be supported,   
 
-If an SMC device captures power metrics, the SMC EnvironmentMetric and Sensor collection shall implement the following properties where supported:
+If an SMC device provides power metrics, the EnvironmentMetric resource and Sensor collection resource *shall* implement the following properties where supported:
 
 - EnergykWh or EnergyJoules
 - PowerWatts
@@ -382,11 +413,18 @@ If an SMC device captures power metrics, the SMC EnvironmentMetric and Sensor co
 - AverageReading
 - AveragingInterval
 
-## Security  
+## Security
 
-Sync with the OCP Security Group around these requirements is required.  [Security Protocol and Data Model (SPDM) Specification](https://www.dmtf.org/dsp/DSP0274)
+AMC *shall* support SPDM 1.1 [DSP0274] or later. Specifically, the following attributes *shall* be supported:
 
-SPDM Request Codes ([DSP0274](https://www.dmtf.org/dsp/DSP0274)) | &nbsp; | Implementation
+- Authentication
+- Identification
+- Attestation
+
+Table XX specifies the support requirements for SPDM.
+**Note:** Sync with the OCP Security Group around these requirements is required.  
+
+SPDM Request Codes | &nbsp; | Implementation
 :-| :-| :-|
 0x81 GET_DIGESTS | &nbsp; | Required
 0x82 GET_CERTIFCATE | &nbsp; | Required
@@ -406,39 +444,24 @@ SPDM Request Codes ([DSP0274](https://www.dmtf.org/dsp/DSP0274)) | &nbsp; | Impl
 0xFF RESPOND_IF_READY | &nbsp; | Required
 
 
-
-
-**Security Requirements**  
-
-SPDM 1.1 or later is required. The following attributes shall be supported:
-
-- Authentication
-- Identification
-- Attestation
-
 # Glossary of Terms
 
 This section provides definitions for terms used in this document.  
 
-**Server**. Machine hardware that contains a Satellite plug-in. Satellite containers are
-typically Servers but are not required to be so. So we use the more general term Host for a Satellite
+**Server**. Machine hardware that contains a Auxiliary plug-in. Auxiliary containers are typically Servers but are not required to be so. So we use the more general term Host for a Auxiliary
 container.  
 
-**Host**. A generalization of a Satellite container that includes Servers (for PCIe Plug-In
-Satellites) and motherboards (for SoC Satellites). A Host is managed by a logical Host Management
-Controller (HMC).  
+**Host**. A generalization of a Auxiliary container that includes Servers (for PCIe Plug-In Auxiliarys) and motherboards (for SoC Auxiliarys). A Host is managed by a logical Host Management Controller (HMC).  
 
-**Satellite**. A dependent group of hardware that is managed by a logical Satellite
-Management Controller (SMC). Satellites typically are smaller than their Host, are terminal points
-in the management graph, and contain a single power & thermal domain.  
+**AMC Devices**. A dependent group of hardware that is managed by a logical Auxiliary
+Management Controller (AMC). AMC Devices typically are smaller than their Host, are terminal points in the management graph, and contain a single power & thermal domain.  
 
-**SMC**. Satellite Management Controller provides a management API to Satellite hardware.
-SMCs may be backed by one or more discrete hardware components. SMC is typically a low-cost
-ARM microcontroller running a RTOS with no external DRAM, although this is not prescriptive and
-any CPU architecture and configuration is acceptable.  
+**AMC**. Auxiliary Management Controller provides a management API to the AMC device.
+AMCs may be backed by one or more discrete hardware components.
+AMC is typically a low-cost microcontroller running a RTOS with no external DRAM.   
 
 **Terminal Hardware**. Hardware that is an endpoint in the management graph. In other
-words, terminal hardware does not itself manage other hardware. Satellites are terminal hardware.  
+words, terminal hardware does not itself manage other hardware. AMC devices are terminal hardware. 
 
 # References
 
