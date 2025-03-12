@@ -415,6 +415,7 @@ If an SMC device provides power metrics, the EnvironmentMetric resource and Sens
 - AveragingInterval
 
 ## Security
+Requirements within this section are intended to define security and SPDM requirements for AMC controllers applicable across supported device classes. 
 ### SPDM
 AMC *shall* comply with the following SPDM requirements:
 
