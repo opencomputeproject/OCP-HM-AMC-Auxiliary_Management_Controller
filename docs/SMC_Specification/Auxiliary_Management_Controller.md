@@ -448,12 +448,9 @@ Table 8 specifies ACM response code requirements for SPDM.
 |0x63 ALGORITHMS |BaseAsymAlgo<br> - [Bit 2] TPM_ALG_RSASSA_3072 [CMA, CNSA,OCP] (Allowed)<br> - [Bit 4) TPM_ALG_ECDSA_ECC_NIST_P256[CMA] (Allowed)<br> - [Bit 7] TPM_ALG_ECDSA_ECC_NIST_P384[CMA, CNSA, OCP] (Preferred)<br><br> BaseHashAlgo<br> - [Bit 0] TPM_ALG_SHA_256 [CMA] (Allowed)<br> - [Bit 1] TPM_ALG_SHA_384 [CMA, CNSA, OCP] (Preferred)<br><br> MeasurementHashAlgo<br> - [Bit 1] TPM_ALG_SHA_256 [CMA] (Allowed)<br> - [Bit 2] TPM_ALG_SHA_384 [CMA, CNSA, OCP] (Preferred) |Required |
 |0x64 KEY_EXCHANGE_RSP | |Required |
 |0x65 FINISH_RSP | |Required |
-|0x66PSK_EXCHANGE_RSP | |Optional |
+|0x66 PSK_EXCHANGE_RSP | |Optional |
 |0x67 PSK_FINISH_RSP | |Optional |
 |0x68 HEARTBEAT_ACK | |Optional |
-|0x69 KEY_UPDATE_ACK | |Required |
-|0x6A ENCAPSULATED_REQUEST | |Required |
-|0x6B ENCAPSULATED_RESPONSE_ACK | |Required |
 |0x6C END_SESSION_ACK | |Required |
 |0x6D CSR | |Recommended |
 |0x6E SET_CERTIFICATE_RSP | |Recommended |
