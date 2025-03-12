@@ -88,6 +88,7 @@ Date | Version # | Author | Description
 9/15/2023 | 1.0 | Chad Yoshikawa | Used recent
 2/12/2024 | 1.0 | Gregg Shick | Convert to markdown
 4/15/2024 | 1.0 | John Leung | Format to work with DMTF Doc Publication tool
+3/12/2025 | 1.2 | Gregg Shick | Add Table #'s <br> Cleanup SMC to AMC <br> Rewrite of Security section
 
 
 # Overview
@@ -414,6 +415,80 @@ If an SMC device provides power metrics, the EnvironmentMetric resource and Sens
 - AveragingInterval
 
 ## Security
+### SPDM
+AMC *shall* comply with the following SPDM requirements:
+
+- Support SPDM 1.2.2 [DSP0274] or later while maintaining backward compatibility with SPDM 1.1.  Signature endianness *shall* follow SPDM 1.2.2 or later.
+- Comply with the revised PCI-SIG Component Measurement and Authentication (CMA-SPDM) ECN that was published on September 20, 2023.
+- Comply with the Secured Messages using SPDM over MCTP Binding Specification, Version 1.1.1 or later.
+- Comply with the Secured Messages using SPDM Specification, Version 1.1.1 or later. Mutual authentication is not required.
+- Comply with the Security Protocol and Data Model (SPDM) over MCTP Binding Specification, Version 1.0.2 or later.
+- Must not drop the response if RESPOND_IF_READY is not received within WTMax amount of time after sending an ERROR message with an ErrorCode equal to ResponseNotReady.
+- Be ready to respond to SPDM requests within a maximum of 2 second after main power is applied.
+- SPDM MCTP interpacket delay shall be less than 40 ms.
+- Support a DataTransferSize of at least 4 KiB.
+- If not ready to accept a new request message, the AMC shall respond with an ERROR response message with an ErrorCode of Busy (3h) (i.e., the device shall not silently discard the request message).
+- If a request is received out of order, the AMC shall respond with an ERROR response message with an ErrorCode of RequestResynch (i.e., 43h) for that request and for all subsequent requests until a GET_VERSION command is received and processed.  The device shall not silently discard requests due to an out of order request.
+
+Table 8 specifies ACM response code requirements for SPDM.
+**Note:** Sync with the OCP Security Group around these requirements is required.  
+
+**Table 8**
+| SPDM Repsonse | Note | Implementation |
+|:------------- |:---- |:-------------- |
+|0x01 DIGESTS |  | Required |
+|0x02 CERTIFICATE | |Required |
+|0x03 CHALLENGE_AUTH |0x0 - No measurement summary hash requested<br> 0x1 - TCB measurements only<br> 0xFF - All measurements |Required |
+|0x04 VERSION | |Required | 
+|0x05 CHUNK_SEND_ACK | |Optional |
+|0x06 CHUNK_RESPONSE | |Optional |
+|0x60 MEASUREMENTS |MEAS_CAP=10b<br> DMTFSpecMeasurementValueType<br> - [00h] Immutable Rom<br> - [01h] Mutable FW |Required |
+|0x61 CAPABILITIES |CERT_CAP<br> CHAL_CAP<br> MEAS_CAP |Required |
+|0x63 ALGORITHMS |BaseAsymAlgo<br> - [Bit 2] TPM_ALG_RSASSA_3072 [CMA, CNSA,OCP] (Allowed)<br> - [Bit 4) TPM_ALG_ECDSA_ECC_NIST_P256[CMA] (Allowed)<br> - [Bit 7] TPM_ALG_ECDSA_ECC_NIST_P384[CMA, CNSA, OCP] (Preferred)<br><br> BaseHashAlgo<br> - [Bit 0] TPM_ALG_SHA_256 [CMA] (Allowed)<br> - [Bit 1] TPM_ALG_SHA_384 [CMA, CNSA, OCP] (Preferred)<br><br> MeasurementHashAlgo<br> - [Bit 1] TPM_ALG_SHA_256 [CMA] (Allowed)<br> - [Bit 2] TPM_ALG_SHA_384 [CMA, CNSA, OCP] (Preferred) |Required |
+|0x64 KEY_EXCHANGE_RSP | |Required |
+|0x65 FINISH_RSP | |Required |
+|0x66PSK_EXCHANGE_RSP | |Optional |
+|0x67 PSK_FINISH_RSP | |Optional |
+|0x68 HEARTBEAT_ACK | |Optional |
+|0x69 KEY_UPDATE_ACK | |Required |
+|0x6A ENCAPSULATED_REQUEST | |Required |
+|0x6B ENCAPSULATED_RESPONSE_ACK | |Required |
+|0x6C END_SESSION_ACK | |Required |
+|0x6D CSR | |Recommended |
+|0x6E SET_CERTIFICATE_RSP | |Recommended |
+|0x7E VENDOR_DEFINED_RESPONSE | |Optional |
+|0x7F ERROR | |Required |
+
+### SPDM Certificate Requirements
+- The Root CA Trusted Certificate Authority shall be the device vendor and shall be the same across all device models developed by the device vendor.
+- Self-signed certificates are prohibited.
+- The AMC shall support the AliasCert or DeviceCert model in slot 0.
+  
+### SPDM Firmware Measurements
+- The AMC shall be able to generate signed measurements (i.e., MEAS_CAP field shall be set to 10b) and shall support the following Measurement block types:
+  
+**Table 9**  
+| DMTFSpecMeasurementValueType             | Requirement |
+|:------------------------------------ |:-------------- |
+| [7] - 0b: Digest, 1b: Raw Bit Stream          | Digest Required       |
+| [6:0] = 00h: immutable ROM           | Recommended       |
+| [6:0] = 01h: mutable firmware          | Required       |
+| [6:0] = 02h: hardware configuration, such as straps, debug modes       | Recommended       |
+| [6:0] = 03h: firmware configuration (e.g., configurable firmware policy) | Recommended       |
+| [6:0] = 04h: Measurement manifest                   | Required       |
+| [6:0] = 05h: Structured representation of debug and device mode              | Optional       |
+| [6:0] = 06h: Mutable firmware’s version number                 | Optional       |
+| 6:0] = 07h: Mutable firmware’s security version number, which should be formatted as an 8-byte unsigned integer             | Optional       |
+
+  
+- The AMC shall always return measurements of the most recently activated firmware and current configuration without requiring a power cycle or any type of PCIe reset. Measurements of the activated firmware image are acceptable.
+- The AMC shall report the same measurements blocks and values for all devices in a product family (e.g., devices with the same model but different capacity points, endurance, or form factor).
+- The AMC shall provide a reference integrity measurement manifest (RIM) for the firmware modules and configuration settings for components using the CoRIM schema as defined by IETF (refer to the latest version of draft-ietf-rats-corim - Concise Reference Integrity Manifest or the RFC (if any) published from that Internet-Draft).
+- The reference measurements in the CoRIM schema may be expressed using the CoMID tags and/or the CoSWID tags. If the CoRIM has reference measurements from sub-components from different manufacturers, then the reference values of the sub-components shall be captured in CoSWID tags with their individual signatures.
+- The RIM shall apply to all devices in a product family (e.g., devices with the same model but different capacity points, endurance, or form factor). The RIM shall not include any instance specific information (e.g., any device specific identifiers such as Serial Number, UUID, etc.).
+- The RIM shall be signed by the device manufacturer using the COSE schema (refer to RFC 8152 - CBOR Object Signing and Encryption (COSE) (ietf.org)). The device manufacturer shall use an approved digital signature algorithm (see SEC-48).
+- The device manufacturer shall provide the customer with a digital certificate with the public key that is able to be used to verify the RIM signatures. This digital certificate shall validate (e.g., via direct signature or certificate chain) to the Root CA Trusted Certificate Authority
+- The RIM shall contain the hash values of each firmware module using an approved hashing algorithm (see SEC-48). ASCII text string values in the RIMs are acceptable if the string length is less than 128 bytes and the string is descriptive (e.g., a module identifier string, a product identifier string, or firmware revision string).
 
 AMC *shall* support SPDM 1.1 [DSP0274] or later. Specifically, the following attributes *shall* be supported:
 
