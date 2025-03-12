@@ -487,34 +487,6 @@ Table 8 specifies ACM response code requirements for SPDM.
 - The device manufacturer shall provide the customer with a digital certificate with the public key that is able to be used to verify the RIM signatures. This digital certificate shall validate (e.g., via direct signature or certificate chain) to the Root CA Trusted Certificate Authority
 - The RIM shall contain the hash values of each firmware module using an approved hashing algorithm (see SEC-48). ASCII text string values in the RIMs are acceptable if the string length is less than 128 bytes and the string is descriptive (e.g., a module identifier string, a product identifier string, or firmware revision string).
 
-AMC *shall* support SPDM 1.1 [DSP0274] or later. Specifically, the following attributes *shall* be supported:
-
-- Authentication
-- Identification
-- Attestation
-
-Table XX specifies the support requirements for SPDM.
-**Note:** Sync with the OCP Security Group around these requirements is required.  
-
-SPDM Request Codes | &nbsp; | Implementation
-:-| :-| :-|
-0x81 GET_DIGESTS | &nbsp; | Required
-0x82 GET_CERTIFCATE | &nbsp; | Required
-0x83 CHALLENGE | &nbsp; | Required
-0x84 GET_VERSION | &nbsp; | Required
-0xE0 GET_MEASUREMENTS | &nbsp; | Required
-&nbsp; | MEAS_CAP=10b | Required
-&nbsp; | DMTFSpecMeasurementValueType<br> - [00h] Immutable Rom<br> - [01h] Mutable FW | Required
-0xE1 GET_CAPABILITIES | &nbsp; | Required
-&nbsp; | CERT_CAP | Required
-&nbsp; | CHAL_CAP | Required
-&nbsp; | MEAS_CAP | Required
-0xE3 NEGOTIATE_ALGORITHMS | &nbsp; | Required
-&nbsp; | BaseAsymAlgo<br> - [Bit 2] TPM_ALG_RSASSA_3072 [CMA, CNSA,OCP] (Allowed)<br> - [Bit 4) TPM_ALG_ECDSA_ECC_NIST_P256[CMA] (Allowed)<br> - [Bit 7] TPM_ALG_ECDSA_ECC_NIST_P384[CMA, CNSA, OCP] (Preferred) | &nbsp;
-&nbsp; | BaseHashAlgo<br> - [Bit 0] TPM_ALG_SHA_256 [CMA] (Allowed)<br> - [Bit 1] TPM_ALG_SHA_384 [CMA, CNSA, OCP] (Preferred) | &nbsp;
-&nbsp; | MeasurementHashAlgo<br> - [Bit 1] TPM_ALG_SHA_256 [CMA] (Allowed)<br> - [Bit 2] TPM_ALG_SHA_384 [CMA, CNSA, OCP] (Preferred) | &nbsp;
-0xFF RESPOND_IF_READY | &nbsp; | Required
-
 
 # Glossary of Terms
 
