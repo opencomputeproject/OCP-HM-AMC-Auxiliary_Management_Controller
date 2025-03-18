@@ -451,7 +451,7 @@ SPDM Repsonse | Implementation | Notes
 0x06 CHUNK_RESPONSE | Optional |  
 0x60 MEASUREMENTS | Required |  MEAS_CAP=10b<br> DMTFSpecMeasurementValueType<br> - [00h] Immutable Rom<br> - [01h] Mutable FW
 0x61 CAPABILITIES | Required |  CERT_CAP<br> CHAL_CAP<br> MEAS_CAP
-0x63 ALGORITHMS |BaseAsymAlgo<br> - [Bit 2] TPM_ALG_RSASSA_3072 [CMA, CNSA,OCP] (Allowed)<br> - [Bit 4) TPM_ALG_ECDSA_ECC_NIST_P256[CMA] (Allowed)<br> - [Bit 7] TPM_ALG_ECDSA_ECC_NIST_P384[CMA, CNSA, OCP] (Preferred)<br><br> BaseHashAlgo<br> - [Bit 0] TPM_ALG_SHA_256 [CMA] (Allowed)<br> - [Bit 1] TPM_ALG_SHA_384 [CMA, CNSA, OCP] (Preferred)<br><br> MeasurementHashAlgo<br> - [Bit 1] TPM_ALG_SHA_256 [CMA] (Allowed)<br> - [Bit 2] TPM_ALG_SHA_384 [CMA, CNSA, OCP] (Preferred) | Required 
+0x63 ALGORITHMS | Required | BaseAsymAlgo<br> - [Bit 2] TPM_ALG_RSASSA_3072 [CMA, CNSA,OCP] (Allowed)<br> - [Bit 4) TPM_ALG_ECDSA_ECC_NIST_P256[CMA] (Allowed)<br> - [Bit 7] TPM_ALG_ECDSA_ECC_NIST_P384[CMA, CNSA, OCP] (Preferred)<br><br> BaseHashAlgo<br> - [Bit 0] TPM_ALG_SHA_256 [CMA] (Allowed)<br> - [Bit 1] TPM_ALG_SHA_384 [CMA, CNSA, OCP] (Preferred)<br><br> MeasurementHashAlgo<br> - [Bit 1] TPM_ALG_SHA_256 [CMA] (Allowed)<br> - [Bit 2] TPM_ALG_SHA_384 [CMA, CNSA, OCP] (Preferred) 
 0x64 KEY_EXCHANGE_RSP | Required |  
 0x65 FINISH_RSP | Required |  
 0x66 PSK_EXCHANGE_RSP | Optional |  
