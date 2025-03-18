@@ -152,6 +152,7 @@ Numbers”
 * Support Section “Prepare for Endpoint Discovery”
 * Support Section “Endpoint Discovery”
 
+**Table 1**
 MCTP Control Command ([DSP0236](https://www.dmtf.org/dsp/DSP0236)) | Implementation
 :- | :- |
 0x01 Set Endpoint ID | Required
@@ -167,6 +168,7 @@ MCTP Control Command ([DSP0236](https://www.dmtf.org/dsp/DSP0236)) | Implementat
 
 ### PLDM
 
+**Table 2**
 PLDM Messaging Control and Discovery Command Codes ([DSP0240](https://www.dmtf.org/dsp/DSP0240)) | Implementation
 :- | :- |
 0x01 SetTID | Required
@@ -192,6 +194,7 @@ The AMC support requirements are:
 
 Table specific the RDE command requirements
 
+**Table 3**
 RDE Command | &nbsp; | Implementation
 :- | :- | :- |
 0x01 NegotiateRedfishParameters | &nbsp; | Required
@@ -245,6 +248,7 @@ The following device classes *shall* be supported: Accelerator, NIC, DPU (SmartN
 Table XX specifies the required support for various device classes. "R" signifies that support is required. "C" signifies that support is required if the feature exists.
 For example, an Accelerator device may not have a Fan and thus Fan Control is conditional.
 
+**Table 4**
 Subsystem | Thermal | Inventory | Software Management | Fan Control | Security | Power Management
 :- | :-: | :-: | :-: | :-: | :-: | :-:
 *Accelerator* | R | R | R | C | R | C
@@ -277,8 +281,9 @@ Devices implementing a single replaceable component may implement PLDM type 2 fo
 
 **PLDM Type 2 Sensor Requirements**
 
-Table XX specifies the support requirement for the PLDM for Platform Monitoring and Control ([DSP0248](https://www.dmtf.org/dsp/DSP0248)
+Table 5 specifies the support requirement for the PLDM for Platform Monitoring and Control ([DSP0248](https://www.dmtf.org/dsp/DSP0248)
 
+**Table 5**
 Command Codes | &nbsp; | Implementation
 :- | :- | :- |
 Terminus Command | &nbsp; | &nbsp;
@@ -339,6 +344,7 @@ AMC devices may have one or multiple updateable firmware or software components.
 
 AMC devices with a single updateable firmware or software component *should* implement PLDM for Firmware Update (type 5).
 
+**Table 6**
 PLDM for Firmware Update | Implementation
 :-| :-|
 0x01 QueryDeviceIdentifiers | Required
@@ -372,6 +378,7 @@ Collections shall contain at least one member of type SoftwareInventory, impleme
 
 AMC devices with a single updateable firmware or software component *should* implement PLDM for Firmware Update (type 5).
 
+**Table 7**
 PLDM for Firmware Update | Implementation
 :-| :-|
 0x01 QueryDeviceIdentifiers | Required
