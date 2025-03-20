@@ -475,7 +475,7 @@ SPDM Repsonse | Implementation | Notes
 DMTFSpecMeasurementValueType | Requirement 
 :-| :-|
 [7] - 0b: Digest, 1b: Raw Bit Stream | Required
-[6:0] = 00h: immutable ROM | Recommended
+[6:0] = 00h: immutable ROM | Required
 [6:0] = 01h: mutable firmware | Required
 [6:0] = 02h: hardware configuration, such as straps, debug modes | Recommended
 [6:0] = 03h: firmware configuration (e.g., configurable firmware policy) | Recommended
