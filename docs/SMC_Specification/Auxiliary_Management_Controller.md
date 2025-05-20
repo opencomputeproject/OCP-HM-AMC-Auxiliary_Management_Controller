@@ -281,7 +281,7 @@ Devices implementing a single replaceable component may implement PLDM type 2 fo
 
 **PLDM Type 2 Sensor Requirements**
 
-Table 5 specifies the support requirement for the PLDM for Platform Monitoring and Control ([DSP0248](https://www.dmtf.org/dsp/DSP0248)
+Table 5 specifies the support requirement for the PLDM for Platform Monitoring and Control ([DSP0248](https://www.dmtf.org/dsp/DSP0248))
 
 **Table 5**
 Command Codes | &nbsp; | Implementation
@@ -425,11 +425,11 @@ Requirements within this section are intended to define security and SPDM requir
 ### SPDM
 AMC *shall* comply with the following SPDM requirements:
 
-- Support SPDM 1.2.2 [DSP0274] or later while maintaining backward compatibility with SPDM 1.1.  Signature endianness *shall* follow SPDM 1.2.2 or later.
+- Support SPDM 1.2.2 ([DSP0274](https://www.dmtf.org/dsp/DSP0274)) or later while maintaining backward compatibility with SPDM 1.1.  Signature endianness *shall* follow SPDM 1.2.2 or later.
 - Comply with the revised PCI-SIG Component Measurement and Authentication (CMA-SPDM) ECN that was published on September 20, 2023.
-- Comply with the Secured Messages using SPDM over MCTP Binding Specification, Version 1.1.1 or later.
-- Comply with the Secured Messages using SPDM Specification, Version 1.1.1 or later. Mutual authentication is not required.
-- Comply with the Security Protocol and Data Model (SPDM) over MCTP Binding Specification, Version 1.0.2 or later.
+- Comply with the Secured Messages using SPDM over MCTP Binding Specification ([DSP0276](https://www.dmtf.org/dsp/DSP0276)), Version 1.1.1 or later.
+- Comply with the Secured Messages using SPDM Specification ([DSP0277](https://www.dmtf.org/dsp/DSP0277)), Version 1.1.1 or later. Mutual authentication is not required.
+- Comply with the Security Protocol and Data Model (SPDM) over MCTP Binding Specification ([DSP0275](https://www.dmtf.org/dsp/DSP0275)), Version 1.0.2 or later.
 - Must not drop the response if RESPOND_IF_READY is not received within WTMax amount of time after sending an ERROR message with an ErrorCode equal to ResponseNotReady.
 - Be ready to respond to SPDM requests within a maximum of 2 second after main power is applied.
 - SPDM MCTP interpacket delay shall be less than 40 ms.
@@ -438,7 +438,6 @@ AMC *shall* comply with the following SPDM requirements:
 - If a request is received out of order, the AMC shall respond with an ERROR response message with an ErrorCode of RequestResynch (i.e., 43h) for that request and for all subsequent requests until a GET_VERSION command is received and processed.  The device shall not silently discard requests due to an out of order request.
 
 Table 8 specifies ACM response code requirements for SPDM.
-**Note:** Sync with the OCP Security Group around these requirements is required.  
 
 **Table 8**
 SPDM Repsonse | Implementation | Notes 
@@ -494,6 +493,7 @@ DMTFSpecMeasurementValueType | Requirement
 - The device manufacturer shall provide the customer with a digital certificate with the public key that is able to be used to verify the RIM signatures. This digital certificate shall validate (e.g., via direct signature or certificate chain) to the Root CA Trusted Certificate Authority
 - The RIM shall contain the hash values of each firmware module using an approved hashing algorithm (see SEC-48). ASCII text string values in the RIMs are acceptable if the string length is less than 128 bytes and the string is descriptive (e.g., a module identifier string, a product identifier string, or firmware revision string).
 
+Note - SPDM Requirements in this section leveraged from the [OCP Datacenter NVMe® SSD Specification](https://www.opencompute.org/documents/datacenter-nvme-ssd-specification-v2-6-2-pdf) version 2.6.
 
 # Glossary of Terms
 
@@ -526,4 +526,4 @@ words, terminal hardware does not itself manage other hardware. AMC devices are 
 - DMTF DSP0248 - [Platform Level Data Model (PLDM) for Platform Monitoring and Control Specification](https://www.dmtf.org/dsp/DSP0248)
 - DMTF DSP0267 - [Platform Level Data Model (PLDM) for Firmware Update Specification](https://www.dmtf.org/dsp/DSP0267)
 - DMTF DSP0274 - [Security Protocol and Data Model (SPDM) Specification](https://www.dmtf.org/dsp/DSP0274)
-  
+- [OCP Datacenter NVMe® SSD Specification](https://www.opencompute.org/documents/datacenter-nvme-ssd-specification-v2-6-2-pdf)  
