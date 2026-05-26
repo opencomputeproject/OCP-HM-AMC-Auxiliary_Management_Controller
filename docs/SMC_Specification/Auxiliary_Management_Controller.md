@@ -335,7 +335,7 @@ AMC devices *may* implement more than one Chassis resource, for representing phy
 
 ## File I/O
 
-AMC devices *shall* conform to DSP0242 [PLDM for File Transfer](https://www.dmtf.org/dsp/DSP0242) to support the ability for providing log information (DiagnosticLog, CrashDumpFile etc.).  
+AMC devices *shall* conform to DSP0242 [PLDM for File Transfer](https://www.dmtf.org/dsp/DSP0242) to support the capability to provide logging information (DiagnosticLog, CrashDumpFile etc.).  
 
 ## Firmware and Software Update
 
