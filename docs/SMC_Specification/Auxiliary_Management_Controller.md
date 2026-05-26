@@ -333,6 +333,10 @@ The ChassisCollection in the device *shall* contain one or more Chassis Resource
 
 AMC devices *may* implement more than one Chassis resource, for representing physical subsystems within the device. Within the AMC chassis collection, there *shall* be only one Chassis instance (referred to further as the “root”) that does not possess a ContainedBy attribute, and is intended to represent the overall containment of the device. All other devices *shall* have a ContainedBy Link, traceable to the root device. Root devices *shall* implement a “Contains” property representing the devices containment
 
+## File I/O
+
+AMC devices shall support the ability to provide logging information (debug, crashdump etc.) via PLDM for File Transfer [DSP0242](https://www.dmtf.org/dsp/DSP0242)
+
 ## Firmware and Software Update
 
 AMC devices may have one or multiple updateable firmware or software components.
