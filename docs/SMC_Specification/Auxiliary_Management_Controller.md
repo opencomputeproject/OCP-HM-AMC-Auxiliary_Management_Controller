@@ -303,6 +303,8 @@ PDR Repository Commands | &nbsp; | &nbsp;
 PLDM Event Types | &nbsp; | &nbsp;
 &nbsp; | 0x02 redfishTaskExecutedEvent | Required if implementation cannot complete commands quickly enough to avoid spawning RDE tasks
 &nbsp; | 0x03 redfishMessageEvent | Required for redfish eventing
+&nbsp; | 0x04 pldmPDRRepositoryChgEvent | Required
+&nbsp; | 0x05 pldmMessagePollEvent | Required
 &nbsp; | 0x51 GetPDR | Required for RDE
 PDR Type Values | &nbsp; | &nbsp;
 &nbsp; | 2 = Numeric Sensor PDR | Required
