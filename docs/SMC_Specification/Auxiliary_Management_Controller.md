@@ -341,7 +341,7 @@ AMC devices *may* implement more than one Chassis resource, for representing phy
 
 ## File I/O
 
-AMC devices *shall* conform to DSP0242 [PLDM for File Transfer](https://www.dmtf.org/dsp/DSP0242) to support the capability to provide logging information (DiagnosticLog, CrashDumpFile etc.).  
+AMC devices *shall* conform to DSP0242 [PLDM for File Transfer](https://www.dmtf.org/dsp/DSP0242) to support file I/O capability necessary to provide device logging information.
 
 ## Firmware and Software Update
 
@@ -424,7 +424,7 @@ Note - SPDM Requirements adopted from the [OCP Datacenter NVMe® SSD Specificati
 - If not ready to accept a new request message, the AMC *shall* respond with an ERROR response message with an ErrorCode of Busy (3h) (i.e., the device shall not silently discard the request message).
 - If a request is received out of order, the AMC *shall* respond with an ERROR response message with an ErrorCode of RequestResynch (i.e., 43h) for that request and for all subsequent requests until a GET_VERSION command is received and processed.  The device *shall not* silently discard requests due to an out of order request.
 
-Table 8 specifies ACM response code requirements for SPDM.
+Table 8 specifies AMC response code requirements for SPDM.
 
 **Table 8**
 SPDM Repsonse | Implementation | Notes 
