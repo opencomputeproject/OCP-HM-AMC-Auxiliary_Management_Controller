@@ -359,17 +359,21 @@ PLDM for Firmware Update | Implementation
 0x04 QueryDowstreamIdentifiers | Required
 0x05 GetDownstreamFirmwareParameters  | Required
 0x10 RequestUpdate | Required
+0x11 GetPackageData | Required
 0x13 PassComponentTable | Required
 0x14 UpdateComponent | Required
 0x15 RequestFirmwareData | Required
 0x16 TransferComplete | Required
 0x17 VerifyComplete | Required
 0x18 ApplyComplete | Required
+0x19 GetMetaData | Required
 0x1A ActivateFirmware| Required
 0x1B GetStatus  | Required
 0x1B GetStatus | Required
 0x1C CancelUpdateComponent | Required
 0x1D CancelUpdate | Required
+0x1E ActivatePendingComponentImageSet | Required
+0x1F ActivatePendingComponentImage | Required
 0x20 RequestDownstreamDeviceUpdate | Required
 
 ### Multiple Update
