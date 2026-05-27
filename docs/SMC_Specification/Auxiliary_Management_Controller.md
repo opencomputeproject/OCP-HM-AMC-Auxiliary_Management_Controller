@@ -88,7 +88,7 @@ Date | Version # | Author | Description
 9/15/2023 | 1.0 | Chad Yoshikawa | Used recent
 2/12/2024 | 1.0 | Gregg Shick | Convert to markdown
 4/15/2024 | 1.0 | John Leung | Format to work with DMTF Doc Publication tool
-3/12/2025 | 1.1 | Gregg Shick | Add Table #'s <br> Cleanup SMC to AMC <br> Rewrite of Security section <br> General doc cleanup. 
+5/27/2026 | 1.1 | Gregg Shick | Add Table #'s <br> Cleanup SMC to AMC <br> Rewrite of Security section <br> General doc cleanup <br> Added dmtf spec minimums <br> Added pldm type 7 as requirement <br> Additional PDR type, event and repository requirements added
 
 
 # Overview
