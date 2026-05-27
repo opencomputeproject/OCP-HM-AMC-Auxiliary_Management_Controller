@@ -218,6 +218,7 @@ RDE Command | &nbsp; | Implementation
 0x12 RetrieveCustomResponseParameters | &nbsp; | Required
 0x13 RDEOperationComplete | &nbsp; | Required
 0x14 RDEOperationStatus | &nbsp; | Required
+0x15 RDEOperationKill | &nbsp; | Required
 0x16 RDEOperationEnumerate | &nbsp; | Required
 0x30 RDEMultipartSend | &nbsp; | Required for write support
 0x31 RDEMultipartReceive | &nbsp; | Required
