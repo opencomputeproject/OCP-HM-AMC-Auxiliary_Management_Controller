@@ -308,6 +308,7 @@ PDR Type Values | &nbsp; | &nbsp;
 &nbsp; | 2 = Numeric Sensor PDR | Required
 &nbsp; | 4= State Sensor PDR | Required
 &nbsp; | 22 = Redfish Resource PDR | Required for RDE
+&nbsp; | 126 = OEM Device PDR | Required
 
 
 Devices implementing multiple replaceable components *shall* implement ThermalSubsystem over RDE.
