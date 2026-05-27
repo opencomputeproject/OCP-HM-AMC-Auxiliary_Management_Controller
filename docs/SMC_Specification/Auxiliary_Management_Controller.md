@@ -144,7 +144,7 @@ Devices meeting this specification *shall* implement DMTF DSP0233 ([Management C
      ii. For SMBus (Binding) Protocol, the device *shall not* be the MCTP Bus Owner but may act as MCTP proxy.  
 
      iii. The device *shall* support receiving an MCTP Set Endpoint ID command at any time (Standby or Main) power is applied. For example, the BMC firmware could be updated resulting in a BMC reset. The BMC initialization sequence will go out and dynamically discover devices and assign Endpoint IDs. While in most cases the same Endpoint ID will be assigned, this is not guaranteed.
-
+ 
 * The device *shall* comply with Section “MCTP Message Types”
 * The device *shall* comply with Section “MCTP Control Protocol”
 * The device *shall* comply with Section “MCTP Control Messages”
@@ -152,6 +152,7 @@ Devices meeting this specification *shall* implement DMTF DSP0233 ([Management C
 Numbers”
 * The device *shall* comply with Section “Prepare for Endpoint Discovery”
 * The device *shall* comply with Section “Endpoint Discovery”
+* Endpoints *should* be ready in less than 60 seconds from power ON
 
 **Table 1**
 MCTP Control Command ([DSP0236](https://www.dmtf.org/dsp/DSP0236)) | Implementation
