@@ -88,7 +88,7 @@ Date | Version # | Author | Description
 9/15/2023 | 1.0 | Chad Yoshikawa | Used recent
 2/12/2024 | 1.0 | Gregg Shick | Convert to markdown
 4/15/2024 | 1.0 | John Leung | Format to work with DMTF Doc Publication tool
-5/27/2026 | 1.1 | Gregg Shick | Add Table #'s <br> Cleanup SMC to AMC <br> Rewrite of Security section <br> General doc cleanup <br> Added dmtf spec minimums <br> Added pldm type 7 as requirement <br> Additional PDR type, event and repository requirements added
+5/27/2026 | 1.1 | Gregg Shick | Add Table #'s <br> Cleanup SMC to AMC <br> Rewrite of Security section <br> General doc cleanup <br> Added DMTF spec minimums <br> Added PLDM type 7 as requirement <br> Additional PDR type, event and repository requirements added
 
 
 # Overview
@@ -141,7 +141,7 @@ Devices meeting this specification *shall* implement DMTF DSP0233 ([Management C
      
      i. The device *shall* comply to all endpoint requirements as specified in this section
      
-     ii. For SMBus (Binding) Protocol, the device *shall not* be the MCTP Bus Owner but may act as MCTP proxy.  
+     ii. For SMBus (Binding) Protocol, the device *shall not* be the MCTP Bus Owner but *may* act as MCTP proxy.  
 
      iii. The device *shall* support receiving an MCTP Set Endpoint ID command at any time (Standby or Main) power is applied. For example, the BMC firmware could be updated resulting in a BMC reset. The BMC initialization sequence will go out and dynamically discover devices and assign Endpoint IDs. While in most cases the same Endpoint ID will be assigned, this is not guaranteed.
  
@@ -516,5 +516,4 @@ DSP0248 | [Platform Level Data Model (PLDM) for Platform Monitoring and Control 
 DSP0267 | [Platform Level Data Model (PLDM) for Firmware Update Specification](https://www.dmtf.org/dsp/DSP0267) | 1.3.0 and later
 DSP0274 | [Security Protocol and Data Model (SPDM) Specification](https://www.dmtf.org/dsp/DSP0274) | 1.2.2 and later with backward compatability to 1.1
 DSP0242 | [Platform Level Data Model (PLDM) for File Transfer Specification](https://www.dmtf.org/dsp/DSP0242) | 1.0.1
-
-[OCP Datacenter NVMe® SSD Specification](https://www.opencompute.org/documents/datacenter-nvme-ssd-specification-v2-6-2-pdf)  
+        | [OCP Datacenter NVMe® SSD Specification](https://www.opencompute.org/documents/datacenter-nvme-ssd-specification-v2-6-2-pdf) | 2.6
