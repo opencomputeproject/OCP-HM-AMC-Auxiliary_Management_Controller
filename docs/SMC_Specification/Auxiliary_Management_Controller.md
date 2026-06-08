@@ -516,4 +516,4 @@ DSP0248 | [Platform Level Data Model (PLDM) for Platform Monitoring and Control 
 DSP0267 | [Platform Level Data Model (PLDM) for Firmware Update Specification](https://www.dmtf.org/dsp/DSP0267) | 1.3.0 and later
 DSP0274 | [Security Protocol and Data Model (SPDM) Specification](https://www.dmtf.org/dsp/DSP0274) | 1.2.2 and later with backward compatability to 1.1
 DSP0242 | [Platform Level Data Model (PLDM) for File Transfer Specification](https://www.dmtf.org/dsp/DSP0242) | 1.0.1
-        | [OCP Datacenter NVMe® SSD Specification](https://www.opencompute.org/documents/datacenter-nvme-ssd-specification-v2-6-2-pdf) | 2.6
+&nbsp;  | [OCP Datacenter NVMe® SSD Specification](https://www.opencompute.org/documents/datacenter-nvme-ssd-specification-v2-6-2-pdf) | 2.6
