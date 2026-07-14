@@ -88,7 +88,7 @@ Date | Version # | Author | Description
 9/15/2023 | 1.0 | Chad Yoshikawa | Used recent
 2/12/2024 | 1.0 | Gregg Shick | Convert to markdown
 4/15/2024 | 1.0 | John Leung | Format to work with DMTF Doc Publication tool
-3/12/2025 | 1.1 | Gregg Shick | Add Table #'s <br> Cleanup SMC to AMC <br> Rewrite of Security section <br> General doc cleanup. 
+5/27/2026 | 2.0 | Gregg Shick | Add Table #'s <br> Cleanup SMC to AMC <br> Rewrite of Security section <br> General doc cleanup <br> Added DMTF spec minimums <br> Added PLDM type 7 as requirement <br> Additional PDR type, event and repository requirements added
 
 
 # Overview
@@ -141,10 +141,10 @@ Devices meeting this specification *shall* implement DMTF DSP0233 ([Management C
      
      i. The device *shall* comply to all endpoint requirements as specified in this section
      
-     ii. For SMBus (Binding) Protocol, the device *shall not* be the MCTP Bus Owner
+     ii. For SMBus (Binding) Protocol, the device *shall not* be the MCTP Bus Owner but *may* act as MCTP proxy.  
 
      iii. The device *shall* support receiving an MCTP Set Endpoint ID command at any time (Standby or Main) power is applied. For example, the BMC firmware could be updated resulting in a BMC reset. The BMC initialization sequence will go out and dynamically discover devices and assign Endpoint IDs. While in most cases the same Endpoint ID will be assigned, this is not guaranteed.
-
+ 
 * The device *shall* comply with Section “MCTP Message Types”
 * The device *shall* comply with Section “MCTP Control Protocol”
 * The device *shall* comply with Section “MCTP Control Messages”
@@ -152,6 +152,7 @@ Devices meeting this specification *shall* implement DMTF DSP0233 ([Management C
 Numbers”
 * The device *shall* comply with Section “Prepare for Endpoint Discovery”
 * The device *shall* comply with Section “Endpoint Discovery”
+* Endpoints *should* be ready in less than 60 seconds from power ON
 
 **Table 1**
 MCTP Control Command ([DSP0236](https://www.dmtf.org/dsp/DSP0236)) | Implementation
@@ -217,6 +218,7 @@ RDE Command | &nbsp; | Implementation
 0x12 RetrieveCustomResponseParameters | &nbsp; | Required
 0x13 RDEOperationComplete | &nbsp; | Required
 0x14 RDEOperationStatus | &nbsp; | Required
+0x15 RDEOperationKill | &nbsp; | Required
 0x16 RDEOperationEnumerate | &nbsp; | Required
 0x30 RDEMultipartSend | &nbsp; | Required for write support
 0x31 RDEMultipartReceive | &nbsp; | Required
@@ -302,12 +304,16 @@ PDR Repository Commands | &nbsp; | &nbsp;
 PLDM Event Types | &nbsp; | &nbsp;
 &nbsp; | 0x02 redfishTaskExecutedEvent | Required if implementation cannot complete commands quickly enough to avoid spawning RDE tasks
 &nbsp; | 0x03 redfishMessageEvent | Required for redfish eventing
+&nbsp; | 0x04 pldmPDRRepositoryChgEvent | Required
+&nbsp; | 0x05 pldmMessagePollEvent | Required
 &nbsp; | 0x51 GetPDR | Required for RDE
 PDR Type Values | &nbsp; | &nbsp;
 &nbsp; | 2 = Numeric Sensor PDR | Required
 &nbsp; | 4= State Sensor PDR | Required
 &nbsp; | 22 = Redfish Resource PDR | Required for RDE
-
+&nbsp; | 23 = Redfish Entity Association PDR | Required
+&nbsp; | 24 = Redfish Action PDR | Required
+&nbsp; | 126 = OEM Device PDR | Required
 
 Devices implementing multiple replaceable components *shall* implement ThermalSubsystem over RDE.
 
@@ -333,13 +339,17 @@ The ChassisCollection in the device *shall* contain one or more Chassis Resource
 
 AMC devices *may* implement more than one Chassis resource, for representing physical subsystems within the device. Within the AMC chassis collection, there *shall* be only one Chassis instance (referred to further as the “root”) that does not possess a ContainedBy attribute, and is intended to represent the overall containment of the device. All other devices *shall* have a ContainedBy Link, traceable to the root device. Root devices *shall* implement a “Contains” property representing the devices containment
 
+## File I/O
+
+AMC devices *shall* conform to DSP0242 [PLDM for File Transfer](https://www.dmtf.org/dsp/DSP0242) to support file I/O capability necessary to provide device logging information.
+
 ## Firmware and Software Update
 
 AMC devices may have one or multiple updateable firmware or software components.
 
 ### Single Update
 
-AMC devices with a single updateable firmware or software component *should* implement PLDM for Firmware Update (type 5).
+AMC devices with a single updateable firmware or software component *shall* implement PLDM for Firmware Update (type 5).
 
 **Table 6**
 PLDM for Firmware Update | Implementation
@@ -350,17 +360,21 @@ PLDM for Firmware Update | Implementation
 0x04 QueryDowstreamIdentifiers | Required
 0x05 GetDownstreamFirmwareParameters  | Required
 0x10 RequestUpdate | Required
+0x11 GetPackageData | Required
 0x13 PassComponentTable | Required
 0x14 UpdateComponent | Required
 0x15 RequestFirmwareData | Required
 0x16 TransferComplete | Required
 0x17 VerifyComplete | Required
 0x18 ApplyComplete | Required
+0x19 GetMetaData | Required
 0x1A ActivateFirmware| Required
 0x1B GetStatus  | Required
 0x1B GetStatus | Required
 0x1C CancelUpdateComponent | Required
 0x1D CancelUpdate | Required
+0x1E ActivatePendingComponentImageSet | Required
+0x1F ActivatePendingComponentImage | Required
 0x20 RequestDownstreamDeviceUpdate | Required
 
 ### Multiple Update
@@ -410,7 +424,7 @@ Note - SPDM Requirements adopted from the [OCP Datacenter NVMe® SSD Specificati
 - If not ready to accept a new request message, the AMC *shall* respond with an ERROR response message with an ErrorCode of Busy (3h) (i.e., the device shall not silently discard the request message).
 - If a request is received out of order, the AMC *shall* respond with an ERROR response message with an ErrorCode of RequestResynch (i.e., 43h) for that request and for all subsequent requests until a GET_VERSION command is received and processed.  The device *shall not* silently discard requests due to an out of order request.
 
-Table 8 specifies ACM response code requirements for SPDM.
+Table 8 specifies AMC response code requirements for SPDM.
 
 **Table 8**
 SPDM Repsonse | Implementation | Notes 
@@ -487,15 +501,19 @@ AMC is typically a low-cost microcontroller running a RTOS with no external DRAM
 words, terminal hardware does not itself manage other hardware. AMC devices are terminal hardware. 
 
 # References
+Implementations shall support the following minimum standard revisions
 
-- DMTF DSP0218 - [Platform Level Data Model (PLDM) for Redfish Device Enablement](https://www.dmtf.org/dsp/DSP0218)
-- DMTF DSP0233 - [Management Component Transport Protocol (MCTP) I3C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0233)
-- DMTF DSP0236 - [Management Component Transport Protocol (MCTP) Base Specification](https://www.dmtf.org/dsp/DSP0236)
-- DMTF DSP0237 - [Management Component Transport Protocol (MCTP) SMBus/I2C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0237)
-- DMTF DSP0238 - [Management Component Transport Protocol (MCTP) PCIe VDM Transport Binding Specification](https://www.dmtf.org/dsp/DSP0238)
-- DMTF DSP0240 - [Platform Level Data Model (PLDM) Base Specification](https://www.dmtf.org/dsp/DSP0240)
-- DMTF DSP0241 - [Platform Level Data Model (PLDM) Over MCTP Binding Specification](https://www.dmtf.org/dsp/DSP0241)
-- DMTF DSP0248 - [Platform Level Data Model (PLDM) for Platform Monitoring and Control Specification](https://www.dmtf.org/dsp/DSP0248)
-- DMTF DSP0267 - [Platform Level Data Model (PLDM) for Firmware Update Specification](https://www.dmtf.org/dsp/DSP0267)
-- DMTF DSP0274 - [Security Protocol and Data Model (SPDM) Specification](https://www.dmtf.org/dsp/DSP0274)
-- [OCP Datacenter NVMe® SSD Specification](https://www.opencompute.org/documents/datacenter-nvme-ssd-specification-v2-6-2-pdf)  
+Specification | Title | Revision 
+:-| :-| :-|
+DSP0218 | [Platform Level Data Model (PLDM) for Redfish Device Enablement](https://www.dmtf.org/dsp/DSP0218) | 1.2.0 and later
+DSP0233 | [Management Component Transport Protocol (MCTP) I3C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0233) | 1.0.1 and later
+DSP0236 | [Management Component Transport Protocol (MCTP) Base Specification](https://www.dmtf.org/dsp/DSP0236) | 1.3.3 and later
+DSP0237 | [Management Component Transport Protocol (MCTP) SMBus/I2C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0237) | 1.2.0 and later
+DSP0238 | [Management Component Transport Protocol (MCTP) PCIe VDM Transport Binding Specification](https://www.dmtf.org/dsp/DSP0238) | 1.4.0 and later
+DSP0240 | [Platform Level Data Model (PLDM) Base Specification](https://www.dmtf.org/dsp/DSP0240) | 1.2.0 and later
+DSP0241 | [Platform Level Data Model (PLDM) Over MCTP Binding Specification](https://www.dmtf.org/dsp/DSP0241) | 1.0.0 and later
+DSP0248 | [Platform Level Data Model (PLDM) for Platform Monitoring and Control Specification](https://www.dmtf.org/dsp/DSP0248) | 1.3.0 and later
+DSP0267 | [Platform Level Data Model (PLDM) for Firmware Update Specification](https://www.dmtf.org/dsp/DSP0267) | 1.3.0 and later
+DSP0274 | [Security Protocol and Data Model (SPDM) Specification](https://www.dmtf.org/dsp/DSP0274) | 1.2.2 and later with backward compatability to 1.1
+DSP0242 | [Platform Level Data Model (PLDM) for File Transfer Specification](https://www.dmtf.org/dsp/DSP0242) | 1.0.1
+&nbsp;  | [OCP Datacenter NVMe® SSD Specification](https://www.opencompute.org/documents/datacenter-nvme-ssd-specification-v2-6-2-pdf) | 2.6
