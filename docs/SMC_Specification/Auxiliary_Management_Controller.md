@@ -349,7 +349,7 @@ AMC devices may have one or multiple updateable firmware or software components.
 
 ### Single Update
 
-AMC devices with a single updateable firmware or software component *should* implement PLDM for Firmware Update (type 5).
+AMC devices with a single updateable firmware or software component *shall* implement PLDM for Firmware Update (type 5).
 
 **Table 6**
 PLDM for Firmware Update | Implementation
