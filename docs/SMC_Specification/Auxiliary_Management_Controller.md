@@ -1,4 +1,14 @@
+---
+title: "Auxiliary Management Controller (AMC) Specification"
+version: "Version 2.0"
+type: BASE
+project: Hardware Management 
+status: Released
+...
 
+\tableofcontents
+
+---
 
 # License
 
@@ -24,7 +34,7 @@ NOTWITHSTANDING THE FOREGOING LICENSES, THIS SPECIFICATION IS PROVIDED BY OCP "A
 
 ## Contributors
 
-**Google** 
+**Google**  
 >chadyoshikawa@google.com  
 >edtanous@google.com  
 
@@ -32,7 +42,10 @@ NOTWITHSTANDING THE FOREGOING LICENSES, THIS SPECIFICATION IS PROVIDED BY OCP "A
 >jeff.hilland@hpe.com  
 >gregg.shick@hpe.com
 
-**Meta**
+**Intel**  
+>john.leung@intel.com  
+
+**Meta**  
 >patrickw3@fb.com
 
 **Samsung**  
@@ -48,7 +61,8 @@ Hewlett Packard Enterprise
 Google  
 Samsung  
 Dell  
-Meta  
+Meta 
+Intel 
 
 # Compliance with OCP Tenants
 ## Openness
@@ -155,6 +169,7 @@ Numbers”
 * Endpoints *should* be ready in less than 60 seconds from power ON
 
 **Table 1**
+
 MCTP Control Command ([DSP0236](https://www.dmtf.org/dsp/DSP0236)) | Implementation
 :- | :- |
 0x01 Set Endpoint ID | Required
@@ -171,6 +186,7 @@ MCTP Control Command ([DSP0236](https://www.dmtf.org/dsp/DSP0236)) | Implementat
 ### PLDM
 
 **Table 2**
+
 PLDM Messaging Control and Discovery Command Codes ([DSP0240](https://www.dmtf.org/dsp/DSP0240)) | Implementation
 :- | :- |
 0x01 SetTID | Required
@@ -193,6 +209,7 @@ PLDM Messaging Control and Discovery Command Codes ([DSP0240](https://www.dmtf.o
 
 
 **Table 3**
+
 RDE Command | &nbsp; | Implementation
 :- | :- | :- |
 0x01 NegotiateRedfishParameters | &nbsp; | Required
@@ -248,6 +265,7 @@ Table 4 specifies the required support for various device classes. "R" signifies
 For example, an Accelerator device may not have a Fan and thus Fan Control is conditional.
 
 **Table 4**
+
 Subsystem | Thermal | Inventory | Software Management | Fan Control | Security | Power Management
 :- | :-: | :-: | :-: | :-: | :-: | :-:
 *Accelerator* | R | R | R | C | R | C
@@ -283,6 +301,7 @@ Devices implementing a single replaceable component may implement PLDM type 2 fo
 Table 5 specifies the support requirement for PLDM for Platform Monitoring and Control ([DSP0248](https://www.dmtf.org/dsp/DSP0248))
 
 **Table 5**
+
 Command Codes | &nbsp; | Implementation
 :- | :- | :- |
 Terminus Command | &nbsp; | &nbsp;
@@ -352,6 +371,7 @@ AMC devices may have one or multiple updateable firmware or software components.
 AMC devices with a single updateable firmware or software component *shall* implement PLDM for Firmware Update (type 5).
 
 **Table 6**
+
 PLDM for Firmware Update | Implementation
 :-| :-|
 0x01 QueryDeviceIdentifiers | Required
@@ -427,6 +447,7 @@ Note - SPDM Requirements adopted from the [OCP Datacenter NVMe® SSD Specificati
 Table 8 specifies AMC response code requirements for SPDM.
 
 **Table 8**
+
 SPDM Repsonse | Implementation | Notes 
 :-| :-| :-|
 0x01 DIGESTS | Required |  
@@ -458,6 +479,7 @@ SPDM Repsonse | Implementation | Notes
 - The AMC *shall* be able to generate signed measurements (i.e., MEAS_CAP field shall be set to 10b) and *shall* support the following Measurement block types:
   
 **Table 9**  
+
 DMTFSpecMeasurementValueType | Requirement 
 :-| :-|
 [7] - 0b: Digest, 1b: Raw Bit Stream | Required
