@@ -1,10 +1,10 @@
 # Fdb version 4
-["pdflatex"] 1790881364.6944 "/tmp/tcg.pandoc/OCP_AMC_Specification_v2.0.ocp.tex" ".cache/OCP_AMC_Specification_v2.0.ocp.pdf" "OCP_AMC_Specification_v2.0.ocp" 1790881367.52991 0
-  ".cache/OCP_AMC_Specification_v2.0.ocp.aux" 1790881367.31625 9082 2f5345dd7b1225a657bbc0395301f197 "pdflatex"
-  ".cache/OCP_AMC_Specification_v2.0.ocp.toc" 1790881367.31625 3090 b1f5ff312880fb8e27c345ffda76a02d "pdflatex"
-  ".cache/SMCSpecImage/smc_arch.png.6d17eac36d.convert.pdf" 1790881358.70019 269125 c18866ca53234df83802cac8b0bd861e ""
+["pdflatex"] 1790884575.11712 "/tmp/tcg.pandoc/OCP_AMC_Specification_v2.0.ocp.tex" ".cache/OCP_AMC_Specification_v2.0.ocp.pdf" "OCP_AMC_Specification_v2.0.ocp" 1790884577.93634 0
+  ".cache/OCP_AMC_Specification_v2.0.ocp.aux" 1790884577.72262 9275 1ef4ef6d7250bf6b561b8ed9a80db587 "pdflatex"
+  ".cache/OCP_AMC_Specification_v2.0.ocp.toc" 1790884577.72262 3090 b1f5ff312880fb8e27c345ffda76a02d "pdflatex"
+  ".cache/SMCSpecImage/smc_arch.png.6d17eac36d.convert.pdf" 1790884574.0626 269125 c18866ca53234df83802cac8b0bd861e ""
   "/ocp-spec-tools/ocp-pandoc-resources/pdf/cover-logo.png" 1790863135.48295 106020 6ff9eb495f492ed15663a27c3de0d6d3 ""
-  "/tmp/tcg.pandoc/OCP_AMC_Specification_v2.0.ocp.tex" 1790881358.99619 65529 c8c26b1498ca58c0bc23311f0cfc22db ""
+  "/tmp/tcg.pandoc/OCP_AMC_Specification_v2.0.ocp.tex" 1790884574.9306 65555 6e106eab129fb9d95c5f6ec9a1b24edd ""
   "/usr/local/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1766186452 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1766186452 916 f87d7c45f9c908e672703b83b72241a3 ""
   "/usr/local/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1766186452 924 9904cf1d39e9767e7a3622f2a125a565 ""
@@ -211,8 +211,8 @@
   "/usr/local/texlive/texmf-dist/web2c/texmf.cnf" 1766186451 42213 4e2ca030e8e2640502016e9e45868dcb ""
   "/usr/local/texlive/texmf-var/web2c/xetex/xelatex.fmt" 1766186642 4471860 c57144dc22be4292afecbd42ac132d19 ""
   "/usr/local/texlive/texmf.cnf" 1766186453 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "OCP_AMC_Specification_v2.0.ocp.tex" 1790881358.99619 65529 c8c26b1498ca58c0bc23311f0cfc22db ""
-  "SMCSpecImage/smc_layers.png" 1790881357.98819 93173 956be1923bdf66fc5680aba411cc02de ""
+  "OCP_AMC_Specification_v2.0.ocp.tex" 1790884574.9306 65555 6e106eab129fb9d95c5f6ec9a1b24edd ""
+  "SMCSpecImage/smc_layers.png" 1790884574.0586 93173 956be1923bdf66fc5680aba411cc02de ""
   (generated)
   ".cache/OCP_AMC_Specification_v2.0.ocp.aux"
   ".cache/OCP_AMC_Specification_v2.0.ocp.log"

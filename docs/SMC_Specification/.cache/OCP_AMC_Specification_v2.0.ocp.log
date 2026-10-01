@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.12.19)  1 OCT 2026 19:02
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.12.19)  1 OCT 2026 19:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2423,47 +2423,27 @@ m/n/10 Auxiliary Management Controller (AMC) Specification
  []
 
 [16]
-Overfull \hbox (0.99281pt too wide) in alignment at lines 1691--1691
+Overfull \hbox (0.99281pt too wide) in alignment at lines 1692--1692
  [] [] [] 
  []
 
 
-Overfull \hbox (0.99281pt too wide) in alignment at lines 1691--1691
+Overfull \hbox (0.99281pt too wide) in alignment at lines 1692--1692
  [] [] [] 
  []
 
 
-Overfull \hbox (0.99281pt too wide) in alignment at lines 1691--1691
+Overfull \hbox (0.99281pt too wide) in alignment at lines 1692--1692
  [] [] [] 
  []
 
 
-Overfull \hbox (0.99281pt too wide) in alignment at lines 1691--1691
+Overfull \hbox (0.99281pt too wide) in alignment at lines 1692--1692
  [] [] [] 
  []
 
 
-Overfull \hbox (27.04239pt too wide) in paragraph at lines 1691--1691
-[]|\TU/Arial(0)/m/n/10 TPM_-ALG_-ECDSA_-ECC_-NIST_-P256 
- []
-
-
-Overfull \hbox (26.76239pt too wide) in paragraph at lines 1691--1691
-[]|\TU/Arial(0)/m/n/10 TPM_-ALG_-ECDSA_-ECC_-NIST_-P384 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1691--1691
-[]|\TU/Arial(0)/m/n/10 0x7E 
- []
-
-
-Overfull \hbox (9.45653pt too wide) in paragraph at lines 1691--1691
-\TU/Arial(0)/m/n/10 VENDOR_-DEFINED_-RESPONSE|  
- []
-
-
-Overfull \hbox (0.99281pt too wide) in alignment at lines 1691--1691
+Overfull \hbox (0.99281pt too wide) in alignment at lines 1692--1692
  [] [] [] 
  []
 
@@ -2474,44 +2454,38 @@ m/n/10 Auxiliary Management Controller (AMC) Specification
  []
 
 [17]
-Overfull \hbox (0.99998pt too wide) in alignment at lines 1762--1762
+Overfull \hbox (0.99998pt too wide) in alignment at lines 1763--1763
  [] [] 
  []
 
 
-Overfull \hbox (0.99998pt too wide) in alignment at lines 1762--1762
+Overfull \hbox (0.99998pt too wide) in alignment at lines 1763--1763
  [] [] 
  []
 
 
-Overfull \hbox (0.99998pt too wide) in alignment at lines 1762--1762
+Overfull \hbox (0.99998pt too wide) in alignment at lines 1763--1763
  [] [] 
  []
 
 
-Overfull \hbox (0.99998pt too wide) in alignment at lines 1762--1762
+Overfull \hbox (0.99998pt too wide) in alignment at lines 1763--1763
  [] [] 
  []
 
 
-Overfull \hbox (0.99998pt too wide) in alignment at lines 1762--1762
+Overfull \hbox (0.99998pt too wide) in alignment at lines 1763--1763
  [] [] 
  []
 
-ignored error: Infinite glue shrinkage found in box being split
-Underfull \hbox (badness 10000) has occurred while \output is active
- []\TU/Arial(0)/m/n/10 Open Compute Project \TU/Arial(0)/b/n/10 · \TU/Arial(0)/
-m/n/10 Auxiliary Management Controller (AMC) Specification 
- []
 
-[18]
-Underfull \hbox (badness 1242) in paragraph at lines 1782--1788
+Underfull \hbox (badness 1242) in paragraph at lines 1783--1789
 []\TU/Arial(0)/m/n/10.95 The reference measurements in the CoRIM schema may be 
 expressed using the 
  []
 
 
-Underfull \hbox (badness 1107) in paragraph at lines 1782--1788
+Underfull \hbox (badness 1107) in paragraph at lines 1783--1789
 \TU/Arial(0)/m/n/10.95 CoMID tags and/or the CoSWID tags. If the CoRIM has refe
 rence measurements 
  []
@@ -2522,8 +2496,14 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 m/n/10 Auxiliary Management Controller (AMC) Specification 
  []
 
+[18]
+Underfull \hbox (badness 10000) has occurred while \output is active
+ []\TU/Arial(0)/m/n/10 Open Compute Project \TU/Arial(0)/b/n/10 · \TU/Arial(0)/
+m/n/10 Auxiliary Management Controller (AMC) Specification 
+ []
+
 [19]
-Underfull \hbox (badness 1694) in paragraph at lines 1827--1831
+Underfull \hbox (badness 1694) in paragraph at lines 1828--1832
 []\TU/Arial(0)/b/n/10.95 AMC Devices\TU/Arial(0)/m/n/10.95 . A dependent group 
 of hardware that is managed by a logical Auxiliary 
  []
@@ -2537,27 +2517,27 @@ m/n/10 Auxiliary Management Controller (AMC) Specification
 [20
 
 ]
-Overfull \hbox (0.99281pt too wide) in alignment at lines 1903--1903
+Overfull \hbox (0.99281pt too wide) in alignment at lines 1904--1904
  [] [] [] 
  []
 
 
-Overfull \hbox (0.99281pt too wide) in alignment at lines 1903--1903
+Overfull \hbox (0.99281pt too wide) in alignment at lines 1904--1904
  [] [] [] 
  []
 
 
-Overfull \hbox (0.99281pt too wide) in alignment at lines 1903--1903
+Overfull \hbox (0.99281pt too wide) in alignment at lines 1904--1904
  [] [] [] 
  []
 
 
-Overfull \hbox (0.99281pt too wide) in alignment at lines 1903--1903
+Overfull \hbox (0.99281pt too wide) in alignment at lines 1904--1904
  [] [] [] 
  []
 
 
-Overfull \hbox (0.99281pt too wide) in alignment at lines 1903--1903
+Overfull \hbox (0.99281pt too wide) in alignment at lines 1904--1904
  [] [] [] 
  []
 
@@ -2576,11 +2556,11 @@ L3 programming layer <2025-11-14>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 37698 strings out of 470152
- 758252 string characters out of 5477859
- 1540514 words of memory out of 5000000
- 65606 multiletter control sequences out of 15000+600000
- 633552 words of font info for 127 fonts, out of 8000000 for 9000
+ 37741 strings out of 470152
+ 759527 string characters out of 5477859
+ 1541514 words of memory out of 5000000
+ 65640 multiletter control sequences out of 15000+600000
+ 635505 words of font info for 142 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  108i,13n,112p,11249b,757s stack positions out of 10000i,1000n,20000p,200000b,200000s
 

@@ -414,4 +414,10 @@ INPUT ./.cache/SMCSpecImage/smc_arch.png.6d17eac36d.convert.pdf
 INPUT ./SMCSpecImage/smc_layers.png
 INPUT ./SMCSpecImage/smc_layers.png
 INPUT ./SMCSpecImage/smc_layers.png
+INPUT /usr/local/texlive/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
+INPUT /usr/local/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
+INPUT /usr/local/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
+INPUT /usr/local/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT .cache/OCP_AMC_Specification_v2.0.ocp.aux

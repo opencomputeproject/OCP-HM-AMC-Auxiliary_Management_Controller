@@ -5,7 +5,6 @@ type: BASE
 project: Hardware Management 
 status: Released
 ...
-
 \tableofcontents
 
 ---
@@ -465,15 +464,15 @@ Table 8 specifies AMC response code requirements for SPDM.
 |  |  | MEAS_CAP - Responder shall support MEASUREMENTS response messages and can generate signatures - MEAS_CAP = 10b |
 | 0x63 ALGORITHMS | Required | **Implementation Guidance** |
 |  |  | **BaseAsymSel** |
-|  |  | TPM_ALG_RSASSA_3072 [CMA, CNSA, OCP] — Allowed |
-|  |  | TPM_ALG_ECDSA_ECC_NIST_P256[CMA] Allowed |
-|  |  | TPM_ALG_ECDSA_ECC_NIST_P384[CMA,CNSA,OCP] Preferred |
+|  |  | TPM_ALG_RSASSA_3072 [CMA, CNSA, OCP] Allowed |
+|  |  | TPM_ALG_ECDSA_ECC_NIST_P256 [CMA] Allowed |
+|  |  | TPM_ALG_ECDSA_ECC_NIST_P384 [CMA, CNSA, OCP] Preferred |
 |  |  | **BaseHashSel** |
-|  |  | TPM_ALG_SHA_256 [CMA] — Allowed |
-|  |  | TPM_ALG_SHA_384 [CMA, CNSA, OCP] — Preferred |
+|  |  | TPM_ALG_SHA_256 [CMA] Allowed |
+|  |  | TPM_ALG_SHA_384 [CMA, CNSA, OCP] Preferred |
 |  |  | **MeasurementHashAlgo** |
-|  |  | TPM_ALG_SHA_256 [CMA] — Allowed |
-|  |  | TPM_ALG_SHA_384 [CMA, CNSA, OCP] — Preferred |
+|  |  | TPM_ALG_SHA_256 [CMA] Allowed |
+|  |  | TPM_ALG_SHA_384 [CMA, CNSA, OCP] Preferred |
 | 0x64 KEY_EXCHANGE_RSP | Required | |
 | 0x65 FINISH_RSP | Required | |
 | 0x66 PSK_EXCHANGE_RSP | Optional | |
@@ -484,7 +483,7 @@ Table 8 specifies AMC response code requirements for SPDM.
 | 0x6E SET_CERTIFICATE_RSP | Recommended | |
 | 0x7E VENDOR_DEFINED_RESPONSE | Optional | |
 | 0x7F ERROR | Required | |
-
+Table: SPDM Response {#tbl:spdm-response .small}
 
 ### SPDM Certificate Requirements
 - The Root CA Trusted Certificate Authority *shall* be the device vendor and shall be the same across all device models developed by the device vendor.
