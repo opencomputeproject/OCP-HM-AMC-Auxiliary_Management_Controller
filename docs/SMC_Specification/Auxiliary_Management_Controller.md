@@ -448,27 +448,44 @@ Table 8 specifies AMC response code requirements for SPDM.
 
 **Table 8**
 
-SPDM Repsonse | Implementation | Notes 
-:-| :-| :-|
-0x01 DIGESTS | Required |  
-0x02 CERTIFICATE | Required |  
-0x03 CHALLENGE_AUTH | Required | Responder shall be able to provide the measurement summary type requested - <br> 0x0 - No measurement summary hash requested<br> 0x1 - TCB measurements only<br> 0xFF - All measurements
-0x04 VERSION | Required |  
-0x05 CHUNK_SEND_ACK | Optional |  
-0x06 CHUNK_RESPONSE | Optional |  
-0x60 MEASUREMENTS | Required | 
-0x61 CAPABILITIES | Required |  CERT_CAP - Responder shall support DIGESTS and CERTIFICATE response messages<br> CHAL_CAP - Responder shall support CHALLENGE_AUTH response message.<br> MEAS_CAP - Responder shall support MEASUREMENTS response and can generate signatures - MEAS_CAP=10b
-0x63 ALGORITHMS | Required | --**Implemenation Guidance**--\\ BaseAsymSel\ - TPM_ALG_RSASSA_3072 [CMA, CNSA,OCP] (Allowed)\ - TPM_ALG_ECDSA_ECC_NIST_P256[CMA] (Allowed)\ - TPM_ALG_ECDSA_ECC_NIST_P384[CMA, CNSA, OCP] (Preferred)<br><br> BaseHashSel<br> - TPM_ALG_SHA_256 [CMA] (Allowed)<br> - TPM_ALG_SHA_384 [CMA, CNSA, OCP] (Preferred)<br><br> MeasurementHashAlgo<br> - TPM_ALG_SHA_256 [CMA] (Allowed)<br> - TPM_ALG_SHA_384 [CMA, CNSA, OCP] (Preferred) 
-0x64 KEY_EXCHANGE_RSP | Required |  
-0x65 FINISH_RSP | Required |  
-0x66 PSK_EXCHANGE_RSP | Optional |  
-0x67 PSK_FINISH_RSP | Optional |  
-0x68 HEARTBEAT_ACK | Optional |  
-0x6C END_SESSION_ACK | Required |  
-0x6D CSR | Recommended |  
-0x6E SET_CERTIFICATE_RSP | Recommended |  
-0x7E VENDOR_DEFINED_RESPONSE | Optional |  
-0x7F ERROR | Required |  
+| SPDM Response | Implementation | Notes |
+| :- | :- | :- |
+| 0x01 DIGESTS | Required | |
+| 0x02 CERTIFICATE | Required | |
+| 0x03 CHALLENGE_AUTH | Required | Responder shall be able to provide the requested measurement summary type. |
+|  |  | 0x0 - No measurement summary hash requested |
+|  |  | 0x1 - TCB measurements only |
+|  |  | 0xFF - All measurements |
+| 0x04 VERSION | Required | |
+| 0x05 CHUNK_SEND_ACK | Optional | |
+| 0x06 CHUNK_RESPONSE | Optional | |
+| 0x60 MEASUREMENTS | Required | |
+| 0x61 CAPABILITIES | Required | CERT_CAP - Responder shall support DIGESTS and CERTIFICATE response messages. |
+|  |  | CHAL_CAP - Responder shall support CHALLENGE_AUTH response messages. |
+|  |  | MEAS_CAP - Responder shall support MEASUREMENTS response messages and can generate signatures. |
+|  |  | MEAS_CAP = 10b |
+| 0x63 ALGORITHMS | Required | **Implementation Guidance** |
+|  |  | **BaseAsymSel** |
+|  |  | TPM_ALG_RSASSA_3072 [CMA, CNSA, OCP] — Allowed |
+|  |  | TPM_ALG_ECDSA_ECC_NIST_P256 [CMA] — Allowed |
+|  |  | TPM_ALG_ECDSA_ECC_NIST_P384 [CMA, CNSA, OCP] — Preferred |
+|  |  | **BaseHashSel** |
+|  |  | TPM_ALG_SHA_256 [CMA] — Allowed |
+|  |  | TPM_ALG_SHA_384 [CMA, CNSA, OCP] — Preferred |
+|  |  | **MeasurementHashAlgo** |
+|  |  | TPM_ALG_SHA_256 [CMA] — Allowed |
+|  |  | TPM_ALG_SHA_384 [CMA, CNSA, OCP] — Preferred |
+| 0x64 KEY_EXCHANGE_RSP | Required | |
+| 0x65 FINISH_RSP | Required | |
+| 0x66 PSK_EXCHANGE_RSP | Optional | |
+| 0x67 PSK_FINISH_RSP | Optional | |
+| 0x68 HEARTBEAT_ACK | Optional | |
+| 0x6C END_SESSION_ACK | Required | |
+| 0x6D CSR | Recommended | |
+| 0x6E SET_CERTIFICATE_RSP | Recommended | |
+| 0x7E VENDOR_DEFINED_RESPONSE | Optional | |
+| 0x7F ERROR | Required | |
+
 
 ### SPDM Certificate Requirements
 - The Root CA Trusted Certificate Authority *shall* be the device vendor and shall be the same across all device models developed by the device vendor.
