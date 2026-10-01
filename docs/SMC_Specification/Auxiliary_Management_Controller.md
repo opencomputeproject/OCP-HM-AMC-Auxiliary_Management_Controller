@@ -207,8 +207,6 @@ PLDM Messaging Control and Discovery Command Codes ([DSP0240](https://www.dmtf.o
 - Devices *should* be capable of returning the requested portions of the Redfish tree in less than 2 seconds.
 
 
-**Table 3**
-
 RDE Command | &nbsp; | Implementation
 :- | :- | :- |
 0x01 NegotiateRedfishParameters | &nbsp; | Required
@@ -240,7 +238,6 @@ RDE Command | &nbsp; | Implementation
 0x31 RDEMultipartReceive | &nbsp; | Required
 
 
-
 ## Device Identification
 
 Devices *shall* expose an interface to a Platform Management FRU Information Storage Definition-compatible API.
@@ -263,8 +260,6 @@ The following device classes *shall* be supported: Accelerator, NIC, DPU (SmartN
 Table 4 specifies the required support for various device classes. "R" signifies that support is required. "C" signifies that support is required if the feature exists.
 For example, an Accelerator device may not have a Fan and thus Fan Control is conditional.
 
-**Table 4**
-
 Subsystem | Thermal | Inventory | Software Management | Fan Control | Security | Power Management
 :- | :-: | :-: | :-: | :-: | :-: | :-:
 *Accelerator* | R | R | R | C | R | C
@@ -272,7 +267,6 @@ Subsystem | Thermal | Inventory | Software Management | Fan Control | Security |
 *DPUs* | R | R | R | C | R | C
 *Storage Tray* | C | R | R | C | R | C
 *Memory (CXL)* | R | R | C | C | R | C
-
 
 ## Thermal management subsystem
 
@@ -443,13 +437,13 @@ Note - SPDM Requirements adopted from the [OCP Datacenter NVMe® SSD Specificati
 - If not ready to accept a new request message, the AMC *shall* respond with an ERROR response message with an ErrorCode of Busy (3h) (i.e., the device shall not silently discard the request message).
 - If a request is received out of order, the AMC *shall* respond with an ERROR response message with an ErrorCode of RequestResynch (i.e., 43h) for that request and for all subsequent requests until a GET_VERSION command is received and processed.  The device *shall not* silently discard requests due to an out of order request.
 
-Table 8 specifies AMC response code requirements for SPDM.
+Table 7 specifies AMC response code requirements for SPDM.
 
 | SPDM Response | Implementation | Notes |
 | :- | :- | :- |
 | 0x01 DIGESTS | Required | |
 | 0x02 CERTIFICATE | Required | |
-| 0x03 CHALLENGE_AUTH | Required | Responder shall be able to provide the measurement summary type requested - |
+| 0x03 CHALLENGE_AUTH | Required | Responder shall be able to provide the measurement summary type requested  |
 |  |  | 0x0 - No measurement summary hash requested |
 |  |  | 0x1 - TCB measurements only |
 |  |  | 0xFF - All measurements |
@@ -482,7 +476,6 @@ Table 8 specifies AMC response code requirements for SPDM.
 | 0x7E VENDOR_DEFINED_RESPONSE | Optional | |
 | 0x7F ERROR | Required | |
 
-
 ### SPDM Certificate Requirements
 - The Root CA Trusted Certificate Authority *shall* be the device vendor and shall be the same across all device models developed by the device vendor.
 - Self-signed certificates are prohibited.
@@ -491,7 +484,7 @@ Table 8 specifies AMC response code requirements for SPDM.
 ### SPDM Firmware Measurements
 - The AMC *shall* be able to generate signed measurements (i.e., MEAS_CAP field shall be set to 10b) and *shall* support the following Measurement block types:
   
-**Table 9**  
+**Table 8**  
 
 DMTFSpecMeasurementValueType | Requirement 
 :-| :-|
