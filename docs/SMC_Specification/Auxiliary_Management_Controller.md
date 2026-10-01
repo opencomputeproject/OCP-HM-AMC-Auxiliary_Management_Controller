@@ -466,8 +466,8 @@ Table 8 specifies AMC response code requirements for SPDM.
 | 0x63 ALGORITHMS | Required | **Implementation Guidance** |
 |  |  | **BaseAsymSel** |
 |  |  | TPM_ALG_RSASSA_3072 [CMA, CNSA, OCP] — Allowed |
-|  |  | TPM_ALG_ECDSA_ECC_NIST_P256 [CMA] — Allowed |
-|  |  | TPM_ALG_ECDSA_ECC_NIST_P384 [CMA, CNSA, OCP] — Preferred |
+|  |  | TPM_ALG_ECDSA_ECC_NIST_P256[CMA] Allowed |
+|  |  | TPM_ALG_ECDSA_ECC_NIST_P384[CMA,CNSA,OCP] Preferred |
 |  |  | **BaseHashSel** |
 |  |  | TPM_ALG_SHA_256 [CMA] — Allowed |
 |  |  | TPM_ALG_SHA_384 [CMA, CNSA, OCP] — Preferred |
