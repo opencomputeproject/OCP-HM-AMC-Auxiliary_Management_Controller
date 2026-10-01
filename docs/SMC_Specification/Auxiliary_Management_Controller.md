@@ -452,7 +452,7 @@ Table 8 specifies AMC response code requirements for SPDM.
 | :- | :- | :- |
 | 0x01 DIGESTS | Required | |
 | 0x02 CERTIFICATE | Required | |
-| 0x03 CHALLENGE_AUTH | Required | Responder shall be able to provide the requested measurement summary type. |
+| 0x03 CHALLENGE_AUTH | Required | Responder shall be able to provide the measurement summary type requested - |
 |  |  | 0x0 - No measurement summary hash requested |
 |  |  | 0x1 - TCB measurements only |
 |  |  | 0xFF - All measurements |
@@ -462,8 +462,7 @@ Table 8 specifies AMC response code requirements for SPDM.
 | 0x60 MEASUREMENTS | Required | |
 | 0x61 CAPABILITIES | Required | CERT_CAP - Responder shall support DIGESTS and CERTIFICATE response messages. |
 |  |  | CHAL_CAP - Responder shall support CHALLENGE_AUTH response messages. |
-|  |  | MEAS_CAP - Responder shall support MEASUREMENTS response messages and can generate signatures. |
-|  |  | MEAS_CAP = 10b |
+|  |  | MEAS_CAP - Responder shall support MEASUREMENTS response messages and can generate signatures - MEAS_CAP = 10b |
 | 0x63 ALGORITHMS | Required | **Implementation Guidance** |
 |  |  | **BaseAsymSel** |
 |  |  | TPM_ALG_RSASSA_3072 [CMA, CNSA, OCP] — Allowed |
