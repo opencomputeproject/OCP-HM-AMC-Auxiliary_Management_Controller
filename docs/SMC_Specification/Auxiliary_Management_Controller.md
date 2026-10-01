@@ -445,8 +445,6 @@ Note - SPDM Requirements adopted from the [OCP Datacenter NVMe® SSD Specificati
 
 Table 8 specifies AMC response code requirements for SPDM.
 
-**Table 8**
-
 | SPDM Response | Implementation | Notes |
 | :- | :- | :- |
 | 0x01 DIGESTS | Required | |
@@ -483,6 +481,7 @@ Table 8 specifies AMC response code requirements for SPDM.
 | 0x6E SET_CERTIFICATE_RSP | Recommended | |
 | 0x7E VENDOR_DEFINED_RESPONSE | Optional | |
 | 0x7F ERROR | Required | |
+
 
 ### SPDM Certificate Requirements
 - The Root CA Trusted Certificate Authority *shall* be the device vendor and shall be the same across all device models developed by the device vendor.
