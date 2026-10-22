@@ -1,6 +1,6 @@
 ---
 title: "Auxiliary Management Controller (AMC) Specification"
-version: "Version 2.0"
+version: "Version 2.1"
 type: BASE
 project: Hardware Management 
 status: Released
@@ -102,7 +102,7 @@ Date | Version # | Author | Description
 2/12/2024 | 1.0 | Gregg Shick | Convert to markdown
 4/15/2024 | 1.0 | John Leung | Format to work with DMTF Doc Publication tool
 5/27/2026 | 2.0 | Gregg Shick | Add Table #'s <br> Cleanup SMC to AMC <br> Rewrite of Security section <br> General doc cleanup <br> Added DMTF spec minimums <br> Added PLDM type 7 as requirement <br> Additional PDR type, event and repository requirements added
-
+10/22/2026 | 2.1 | Gregg Shick | Include DSP0283 as a *should* requirement for MCTP
 
 # Overview
 The Auxiliary Management Controller specification defines the management interface between a host server and hardware plug-ins.  For example: the host server has a baseboard management controller (BMC). The plug-in has an auxiliary management controller (AMC).  Hence, the manageament interface is the interface between the BMC and the AMC.  
@@ -140,7 +140,7 @@ socket server with BMC.
 AMC devices *shall* implement DMTF DSP0236 ([Management Component Transport Protocol (MCTP) Base Specification](https://www.dmtf.org/dsp/DSP0236)).
 
 ## Physical bindings supported
-Devices meeting this specification *shall* implement DMTF DSP0233 ([Management Component Transport Protocol (MCTP) I3C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0233)) OR DSP0237 ([Management Component Transport Protocol (MCTP) SMBus/I2C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0237)) OR DSP0238 ([Management Component Transport Protocol (MCTP) PCIe VDM Transport Binding Specification](https://www.dmtf.org/dsp/DSP0238)). Other physical bindings such as USB, that have MCTP bindings may be supported. Devices *shall* implement these protocols without requiring an on-board i2c mux in the protocol path.
+Devices meeting this specification *shall* implement DMTF DSP0233 ([Management Component Transport Protocol (MCTP) I3C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0233)) OR DSP0237 ([Management Component Transport Protocol (MCTP) SMBus/I2C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0237)) OR DSP0238 ([Management Component Transport Protocol (MCTP) PCIe VDM Transport Binding Specification](https://www.dmtf.org/dsp/DSP0238)). Additionally, DSP0283 ([Management Component Transport Protocol (MCTP) Universal Serial Bus (USB) Transport Binding Specification](https://www.dmtf.org/dsp/DSP0283) *should* be supported. Devices *shall* implement these protocols without requiring an on-board i2c mux in the protocol path.
 
 <p align="center">
   <img width="586" height="342" src="SMCSpecImage/smc_layers.png">
@@ -206,6 +206,7 @@ PLDM Messaging Control and Discovery Command Codes ([DSP0240](https://www.dmtf.o
 - Devices *should* support a minimum of 4 concurrent RDE tree operations.  
 - Devices *should* be capable of returning the requested portions of the Redfish tree in less than 2 seconds.
 
+**Table 3**
 
 RDE Command | &nbsp; | Implementation
 :- | :- | :- |
@@ -259,6 +260,8 @@ The following device classes *shall* be supported: Accelerator, NIC, DPU (SmartN
 
 Table 4 specifies the required support for various device classes. "R" signifies that support is required. "C" signifies that support is required if the feature exists.
 For example, an Accelerator device may not have a Fan and thus Fan Control is conditional.
+
+**Table 4**
 
 Subsystem | Thermal | Inventory | Software Management | Fan Control | Security | Power Management
 :- | :-: | :-: | :-: | :-: | :-: | :-:
@@ -439,6 +442,8 @@ Note - SPDM Requirements adopted from the [OCP Datacenter NVMe® SSD Specificati
 
 Table 7 specifies AMC response code requirements for SPDM.
 
+**Table 7**
+
 | SPDM Response | Implementation | Notes |
 | :- | :- | :- |
 | 0x01 DIGESTS | Required | |
@@ -538,6 +543,7 @@ DSP0233 | [Management Component Transport Protocol (MCTP) I3C Transport Binding 
 DSP0236 | [Management Component Transport Protocol (MCTP) Base Specification](https://www.dmtf.org/dsp/DSP0236) | 1.3.3 and later
 DSP0237 | [Management Component Transport Protocol (MCTP) SMBus/I2C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0237) | 1.2.0 and later
 DSP0238 | [Management Component Transport Protocol (MCTP) PCIe VDM Transport Binding Specification](https://www.dmtf.org/dsp/DSP0238) | 1.4.0 and later
+DSP0283 | [Management Component Transport Protocol (MCTP) Universal Serial Bus (USB) Transport Binding Specification](https://www.dmtf.org/dsp/DSP0283) | 1.1.1 and later
 DSP0240 | [Platform Level Data Model (PLDM) Base Specification](https://www.dmtf.org/dsp/DSP0240) | 1.2.0 and later
 DSP0241 | [Platform Level Data Model (PLDM) Over MCTP Binding Specification](https://www.dmtf.org/dsp/DSP0241) | 1.0.0 and later
 DSP0248 | [Platform Level Data Model (PLDM) for Platform Monitoring and Control Specification](https://www.dmtf.org/dsp/DSP0248) | 1.3.0 and later
