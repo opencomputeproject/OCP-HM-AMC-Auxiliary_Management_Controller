@@ -1,6 +1,6 @@
 ---
 title: "Auxiliary Management Controller (AMC) Specification"
-version: "Version 2.1"
+version: "Version 2.0"
 type: BASE
 project: Hardware Management 
 status: Released
@@ -101,8 +101,7 @@ Date | Version # | Author | Description
 9/15/2023 | 1.0 | Chad Yoshikawa | Used recent
 2/12/2024 | 1.0 | Gregg Shick | Convert to markdown
 4/15/2024 | 1.0 | John Leung | Format to work with DMTF Doc Publication tool
-5/27/2026 | 2.0 | Gregg Shick | Add Table #'s <br> Cleanup SMC to AMC <br> Rewrite of Security section <br> General doc cleanup <br> Added DMTF spec minimums <br> Added PLDM type 7 as requirement <br> Additional PDR type, event and repository requirements added
-10/22/2026 | 2.1 | Gregg Shick | Include DSP0283 as a *should* requirement for MCTP
+10/22/2026 | 2.0 | Gregg Shick | Add Table #'s <br> Cleanup SMC to AMC <br> Rewrite of Security section <br> General doc cleanup <br> Added DMTF spec minimums <br> Added PLDM type 7 as requirement <br> Additional PDR type, event and repository requirements added <br> Include DSP0283 as a *should* requirement for MCTP
 
 # Overview
 The Auxiliary Management Controller specification defines the management interface between a host server and hardware plug-ins.  For example: the host server has a baseboard management controller (BMC). The plug-in has an auxiliary management controller (AMC).  Hence, the manageament interface is the interface between the BMC and the AMC.  
