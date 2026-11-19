@@ -63,7 +63,7 @@ Dell
 Meta 
 Intel 
 
-# Compliance with OCP Tenants
+# Compliance with OCP Tenents
 ## Openness
 The document proposes an ecosystem-enabling set of requirements for peripherals to
 enable management compatibility between open systems. This allows interoperability between
@@ -139,7 +139,7 @@ socket server with BMC.
 AMC devices *shall* implement DMTF DSP0236 ([Management Component Transport Protocol (MCTP) Base Specification](https://www.dmtf.org/dsp/DSP0236)).
 
 ## Physical bindings supported
-Devices meeting this specification *shall* implement DMTF DSP0233 ([Management Component Transport Protocol (MCTP) I3C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0233)) OR DSP0237 ([Management Component Transport Protocol (MCTP) SMBus/I2C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0237)) OR DSP0238 ([Management Component Transport Protocol (MCTP) PCIe VDM Transport Binding Specification](https://www.dmtf.org/dsp/DSP0238)). Additionally, DSP0283 ([Management Component Transport Protocol (MCTP) Universal Serial Bus (USB) Transport Binding Specification](https://www.dmtf.org/dsp/DSP0283) *should* be supported. Devices *shall* implement these protocols without requiring an on-board i2c mux in the protocol path.
+Devices meeting this specification *shall* implement DMTF DSP0233 ([Management Component Transport Protocol (MCTP) I3C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0233)) OR DSP0237 ([Management Component Transport Protocol (MCTP) SMBus/I2C Transport Binding Specification](https://www.dmtf.org/dsp/DSP0237)) OR DSP0238 ([Management Component Transport Protocol (MCTP) PCIe VDM Transport Binding Specification](https://www.dmtf.org/dsp/DSP0238)). Additionally, DSP0283 ([Management Component Transport Protocol (MCTP) Universal Serial Bus (USB) Transport Binding Specification](https://www.dmtf.org/dsp/DSP0283)) *should* be supported. Devices *shall* implement these protocols without requiring an on-board i2c mux in the protocol path.
 
 <p align="center">
   <img width="586" height="342" src="SMCSpecImage/smc_layers.png">
@@ -227,7 +227,7 @@ RDE Command | &nbsp; | Implementation
 &nbsp; | 2=OPERATION_CREATE | Conditional - Required for write support
 &nbsp; | 3=OPERATION_DELETE | Conditional - Required for write supportired
 &nbsp; | 4=OPERATION_UPDATE | Conditional - Required for write support
-&nbsp; | 6=OPRERATION_ACTION | Conditional - Required for write support
+&nbsp; | 6=OPERATION_ACTION | Conditional - Required for write support
 0x11 SupplyCustomRequestParameters | &nbsp; | Required
 0x12 RetrieveCustomResponseParameters | &nbsp; | Required
 0x13 RDEOperationComplete | &nbsp; | Required
@@ -320,7 +320,6 @@ PLDM Event Types | &nbsp; | &nbsp;
 &nbsp; | 0x03 redfishMessageEvent | Required for redfish eventing
 &nbsp; | 0x04 pldmPDRRepositoryChgEvent | Required
 &nbsp; | 0x05 pldmMessagePollEvent | Required
-&nbsp; | 0x51 GetPDR | Required for RDE
 PDR Type Values | &nbsp; | &nbsp;
 &nbsp; | 2 = Numeric Sensor PDR | Required
 &nbsp; | 4= State Sensor PDR | Required
@@ -384,7 +383,6 @@ PLDM for Firmware Update | Implementation
 0x18 ApplyComplete | Required
 0x19 GetMetaData | Required
 0x1A ActivateFirmware| Required
-0x1B GetStatus  | Required
 0x1B GetStatus | Required
 0x1C CancelUpdateComponent | Required
 0x1D CancelUpdate | Required
